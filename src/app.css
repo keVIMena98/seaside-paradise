@@ -14,7 +14,7 @@
   --font-label: 'Oswald', sans-serif;
   --font-body: 'Inter', sans-serif;
 
-  --navbar-h: 80px;
+  --navbar-h: 100px;
   --section-pad: clamp(60px, 8vw, 120px);
   --container: 1280px;
   --radius: 4px;
@@ -82,6 +82,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 3px;
   background: var(--amber);
   margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  :root { --navbar-h: 65px; }
 }
 
 /* ── Photo placeholder base (swap for real images) ─────────── */

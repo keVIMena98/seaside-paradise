@@ -3,161 +3,223 @@
   export let links = [];
   import { page } from '$app/stores';
 
+  const subtitles = {
+    'About':    'About the restaurant',
+    'Menu':     'See our daily menu',
+    'Catering': 'Private events & catering',
+    'Contact':  'Find us in Bodden Town',
+  };
+
   function close() { open = false; }
 </script>
 
 {#if open}
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div class="overlay" on:click={close}></div>
+  <div
+    class="mobile-menu"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile navigation"
+  >
+    <!-- Top bar -->
+    <div class="topbar">
+      <a href="/" class="logo-link" on:click={close} aria-label="Home">
+        <img src="/logo.png" alt="Seaside Paradise" class="logo" />
+      </a>
+      <button class="close-btn" on:click={close} aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <!-- Nav links -->
+    <nav class="nav-links" aria-label="Mobile navigation">
+      {#each links as { href, label }}
+        <a {href} class="nav-item" class:active={$page.url.pathname === href} on:click={close}>
+          <span class="item-label">{label}</span>
+          {#if subtitles[label]}
+            <span class="item-sub">{subtitles[label]}</span>
+          {/if}
+          <div class="item-border"></div>
+        </a>
+      {/each}
+    </nav>
+
+    <!-- Contact details -->
+    <div class="contact-block">
+      <div class="phone-row">
+        <span class="dot"></span>
+        <a href="tel:+13455164367" class="phone-text" on:click={close}>+1 (345) 516-4367</a>
+      </div>
+      <p class="social-text">@seasideparadiserestaurant</p>
+      <p class="social-text">@seasideparadisefood (TikTok)</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <a href="/menu" class="view-menu" on:click={close}>View Menu</a>
+    </div>
+  </div>
 {/if}
 
-<nav class="mobile-menu" class:open aria-label="Mobile navigation" aria-hidden={!open}>
-  <div class="menu-top">
-    <a href="/" class="logo-link" on:click={close} aria-label="Home">
-      <img src="/logo.svg" alt="Seaside Paradise Restaurant" class="logo" />
-    </a>
-    <button class="close-btn" on:click={close} aria-label="Close menu">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M2 2L18 18M18 2L2 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
-
-  <div class="menu-links">
-    {#each links as { href, label }, i}
-      <a
-        {href}
-        class="menu-item"
-        class:active={$page.url.pathname === href}
-        on:click={close}
-        style="animation-delay: {i * 60}ms"
-      >
-        <span class="item-label">{label}</span>
-        <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <div class="divider"></div>
-    {/each}
-  </div>
-
-  <div class="menu-footer">
-    <a href="tel:+13455164367" class="footer-phone" on:click={close}>
-      <span class="dot"></span>+1 (345) 516-4367
-    </a>
-    <p class="footer-social">@seasideparadiserestaurant</p>
-    <p class="footer-social">@seasideparadisefood (TikTok)</p>
-    <a href="/menu" class="btn btn-red view-menu" on:click={close}>View Menu</a>
-  </div>
-</nav>
-
 <style>
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 199;
-    backdrop-filter: blur(2px);
-  }
-
   .mobile-menu {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: min(340px, 90vw);
-    height: 100dvh;
-    background: var(--bg-dark);
+    inset: 0;
+    background: #1c1610;
     z-index: 200;
     display: flex;
     flex-direction: column;
-    transform: translateX(-100%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: auto;
-  }
-  .mobile-menu.open { transform: translateX(0); }
-
-  .menu-top {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 20px 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    flex-shrink: 0;
-  }
-  .logo { height: 32px; width: auto; }
-
-  .close-btn {
-    color: var(--cream);
-    padding: 6px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-  .close-btn:hover { opacity: 1; }
-
-  .menu-links {
-    flex: 1;
-    padding: 24px 0;
+    overflow-y: auto;
+    padding-bottom: 48px;
+    animation: menuIn 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .menu-item {
+  @keyframes menuIn {
+    from { opacity: 0; transform: translateX(16px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Top bar */
+  .topbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px;
+    height: 64px;
+    flex-shrink: 0;
+  }
+
+  .logo { height: 33px; width: auto; max-width: 120px; display: block; }
+  .logo-link { display: flex; align-items: center; }
+
+  .close-btn {
+    color: var(--cream);
+    font-size: 20px;
+    line-height: 1;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Divider */
+  .divider-line {
+    flex-shrink: 0;
+    height: 1px;
+    background: rgba(247, 240, 220, 0.15);
+  }
+
+  /* Nav links */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  .nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 24px;
+    min-height: 88px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .nav-item:hover { background: rgba(255,255,255,0.04); }
+
+  .item-label {
     font-family: var(--font-label);
     font-weight: 600;
-    font-size: 22px;
+    font-size: 40px;
+    line-height: normal;
     color: var(--cream);
-    opacity: 0.85;
-    transition: opacity 0.2s, padding-left 0.2s;
+    white-space: nowrap;
   }
-  .menu-item:hover, .menu-item.active {
-    opacity: 1;
-    padding-left: 28px;
-    color: var(--amber);
-  }
-  .arrow { opacity: 0.5; flex-shrink: 0; }
-  .menu-item:hover .arrow, .menu-item.active .arrow { opacity: 1; }
+  .nav-item.active .item-label { color: var(--amber); }
 
-  .divider {
+  .item-sub {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: normal;
+    color: rgba(247, 240, 220, 0.45);
+    letter-spacing: 0.52px;
+    white-space: nowrap;
+  }
+
+  .item-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 1px;
-    background: rgba(255,255,255,0.06);
-    margin: 0 24px;
+    background: rgba(247, 240, 220, 0.1);
   }
+  .nav-item:last-child .item-border { display: none; }
 
-  .menu-footer {
-    padding: 24px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+  /* Contact */
+  .contact-block {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 32px 24px 0;
+    flex-shrink: 0;
   }
 
-  .footer-phone {
+  .phone-row {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--cream);
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 4px;
   }
+
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--amber);
     flex-shrink: 0;
   }
-  .footer-social {
-    font-size: 13px;
+
+  .phone-text {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    line-height: normal;
     color: var(--cream);
-    opacity: 0.55;
+    text-decoration: none;
+  }
+
+  .social-text {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: normal;
+    color: rgba(247, 240, 220, 0.6);
+  }
+
+  /* CTA */
+  .cta-block {
+    padding: 24px;
+    flex-shrink: 0;
   }
 
   .view-menu {
-    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    padding: 16px;
+    background: var(--red);
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: normal;
+    text-decoration: none;
+    transition: opacity 0.2s;
   }
+  .view-menu:hover { opacity: 0.9; }
 </style>

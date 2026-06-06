@@ -1,195 +1,347 @@
 <svelte:head>
-  <title>Services & Catering — Seaside Paradise Restaurant</title>
+  <title>Services & Catering — Seaside Paradise</title>
 </svelte:head>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <section class="services-hero photo-bg" style="background-image:url('/photos/services-hero.jpg')">
   <div class="hero-overlay"></div>
-  <div class="container hero-content">
-    <span class="label">What We Do</span>
-    <h1 class="display hero-title">What We<br />Do<br />For You</h1>
+  <div class="hero-title-wrap">
+    <h1 class="hero-title">What We<br />Do<br />For You</h1>
   </div>
 </section>
 
-<!-- INTRO -->
-<section class="intro-section">
-  <div class="container intro-inner">
-    <div class="intro-text">
-      <span class="label">Our Offering</span>
-      <h2 class="display">Fresh, Local &amp; Catered to You</h2>
-      <p>Whether you're sitting down for lunch or planning a big gathering, Seaside Paradise has you covered. From daily dining to full catering, we bring the island flavors to you.</p>
-      <a href="/contact" class="btn btn-dark">Get in Touch</a>
+<!-- ── OUR OFFERING ── -->
+<section class="offering-section">
+  <div class="offering-header">
+    <p class="eyebrow-red">OUR OFFERING</p>
+    <h2 class="offering-title">Fresh, Local &amp; Catered to You</h2>
+  </div>
+
+  <div class="offering-photo-wrap">
+    <div class="offering-photo photo-bg" style="background-image:url('/photos/services-interior.jpg')">
+      <button class="photo-arrow arrow-left" aria-label="Previous photo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M20 26L10 16L20 6" stroke="#2D1A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="photo-arrow arrow-right" aria-label="Next photo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M12 6L22 16L12 26" stroke="#2D1A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
-    <div class="intro-photo photo-bg" style="background-image:url('/photos/fine-dining.jpg')">
-      <div class="photo-caption">Seaside Paradise, Bodden Town</div>
-    </div>
+  </div>
+
+  <div class="offering-footer">
+    <p class="offering-body">Whether you're sitting down for lunch or planning a big gathering, Seaside Paradise has you covered. From daily dining to full catering, we bring the island flavors to you.</p>
+    <a href="/contact" class="btn-pill-red">Get in Touch</a>
   </div>
 </section>
 
-<!-- DAILY DINING -->
-<section class="daily-section">
-  <div class="daily-photo photo-bg" style="background-image:url('/photos/daily-dining.jpg')"></div>
-  <div class="daily-content">
-    <span class="label">Fresh Off the Grill, Every Day</span>
-    <h2 class="display">Daily Dining</h2>
-    <p>Open 7 days a week, 11am–10:30pm. Fresh Caribbean dishes cooked daily. Walk in and eat well.</p>
-    <a href="/menu" class="btn btn-dark">See Our Menu</a>
-  </div>
-</section>
-
-<!-- PRIVATE EVENTS -->
+<!-- ── PRIVATE EVENTS ── -->
 <section class="events-section">
-  <div class="events-photo photo-bg" style="background-image:url('/photos/private-events.jpg')"></div>
+  <div class="events-photo photo-bg" style="background-image:url('/photos/services-private.jpg')"></div>
   <div class="events-content">
-    <span class="label">Book Us</span>
-    <h2 class="display events-title">Private Events<br />&amp; Catering</h2>
-    <p>Celebrate your next birthday, graduation, anniversary or corporate gathering with us. We cook fresh Caribbean dishes for your group and make the occasion one to remember.</p>
-    <a href="/contact" class="btn btn-outline-cream">Book Your Event</a>
+    <div class="events-text">
+      <div class="events-head">
+        <p class="eyebrow-amber">BOOK US</p>
+        <h2 class="events-title">Private Events<br />&amp; Catering</h2>
+      </div>
+      <p class="events-body">Celebrate your next birthday, graduation, anniversary or corporate gathering with us. We cook fresh Caribbean dishes for your group and make the occasion one to remember.</p>
+    </div>
+    <a href="/contact" class="btn-pill-cream">Book Your Event</a>
   </div>
 </section>
 
-<!-- OFF-SITE CATERING -->
-<section class="offsite-section">
-  <div class="container offsite-inner">
-    <div class="service-card">
-      <div class="service-icon">🍽️</div>
-      <h3>Off-Site Catering</h3>
-      <p>We bring Seaside Paradise to your event — fresh Caribbean dishes, hot and ready for your guests anywhere in Grand Cayman. Call us to discuss your menu and headcount.</p>
-      <a href="/contact" class="btn btn-outline-dark">Get a Quote</a>
+<!-- ── SERVICE ITEMS ── -->
+<section class="items-section">
+  <div class="items-inner">
+    <div class="service-item">
+      <div class="service-photo photo-bg" style="background-image:url('/photos/services-offsite.jpg')">
+        <div class="service-label">Off-Site Catering</div>
+      </div>
+      <p class="service-desc">We bring Seaside Paradise to your event — fresh Caribbean dishes, hot and ready for your guests anywhere in Grand Cayman. Call us to discuss your menu and headcount.</p>
     </div>
-    <div class="service-card">
-      <div class="service-icon">🍹</div>
-      <h3>Island Drinks &amp; Sides</h3>
-      <p>Pair your meal with our locally-inspired rum punch, bush rum cocktails, and fresh-squeezed island juices. The perfect complement to any Caribbean spread.</p>
-      <a href="/contact" class="btn btn-outline-dark">Ask About Drinks</a>
+    <div class="service-item">
+      <div class="service-photo photo-bg" style="background-image:url('/photos/services-drinks.jpg')">
+        <div class="service-label">Island Drinks &amp; Sides</div>
+      </div>
+      <p class="service-desc">Pair your meal with our locally-inspired rum punch, bush rum cocktails, and fresh-squeezed island juices.</p>
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="services-cta photo-bg" style="background-image:url('/photos/beach-trees.jpg')">
-  <div class="cta-overlay"></div>
-  <div class="container cta-content">
-    <h2 class="display cta-text">Good food,<br /><em>good vibes,</em><br />every day.</h2>
-    <a href="/contact" class="btn btn-outline-cream">Get in Touch</a>
   </div>
 </section>
 
 <style>
-/* HERO */
+/* ── Shared eyebrows ── */
+.eyebrow-red {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1.92px;
+  color: var(--red);
+}
+.eyebrow-amber {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1.92px;
+  color: var(--amber);
+}
+
+/* ── Shared buttons ── */
+.btn-pill-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  padding: 12px 56px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.btn-pill-red:hover { opacity: 0.9; }
+
+.btn-pill-cream {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  padding: 12px 56px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.btn-pill-cream:hover { opacity: 0.9; }
+
+/* ── HERO ── */
 .services-hero {
   position: relative;
-  height: 560px;
-  display: flex;
-  align-items: flex-end;
-  background-color: #4A6060;
-}
-.hero-overlay { position: absolute; inset: 0; background: rgba(26,9,5,0.55); }
-.hero-content {
-  position: relative; z-index: 1;
-  padding-bottom: 64px;
-}
-.hero-content .label { display: block; color: var(--amber); margin-bottom: 8px; }
-.hero-title { font-size: clamp(40px, 7vw, 80px); color: var(--cream); line-height: 1.0; }
-
-/* INTRO */
-.intro-section { background: var(--cream); padding: var(--section-pad) 0; }
-.intro-inner {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: center;
-}
-.intro-text { display: flex; flex-direction: column; gap: 20px; }
-.intro-text .label { display: block; }
-.intro-text h2 { font-size: clamp(28px, 4vw, 44px); }
-.intro-text p { font-size: 16px; color: var(--text-muted); line-height: 1.7; }
-.intro-photo {
-  position: relative;
   height: 400px;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background-color: #5A7060;
-}
-.photo-caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: rgba(26,9,5,0.6);
-  color: rgba(247,240,220,0.8);
-  font-size: 12px;
-  padding: 10px 16px;
-}
-
-/* DAILY DINING */
-.daily-section {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 500px;
-}
-.daily-photo { background-color: #4A7060; }
-.daily-content {
-  background: var(--offwhite);
-  padding: clamp(48px, 6vw, 96px) clamp(40px, 5vw, 80px);
-  display: flex; flex-direction: column;
-  justify-content: center; gap: 20px;
-}
-.daily-content .label { display: block; }
-.daily-content h2 { font-size: clamp(32px, 4vw, 52px); }
-.daily-content p { font-size: 16px; color: var(--text-muted); line-height: 1.7; max-width: 380px; }
-
-/* PRIVATE EVENTS */
-.events-section {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 560px;
-}
-.events-photo {
-  order: 2;
-  background-color: #4A6858;
+  margin-top: calc(-1 * var(--navbar-h));
+  background-color: #4A6060;
   background-size: cover;
   background-position: center;
 }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,9,5,0.72) 0%, rgba(26,9,5,0.3) 55%, rgba(26,9,5,0.1) 100%);
+}
+.hero-title-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 0 0 clamp(24px, 5.6vw, 80px);
+  z-index: 1;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 80px);
+  line-height: 1.1;
+  color: var(--cream);
+}
+
+/* ── OFFERING ── */
+.offering-section {
+  background: #fffff4;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  padding: var(--section-pad) 0;
+}
+.offering-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+  padding: 0 clamp(24px, 5.6vw, 80px);
+}
+.offering-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.12;
+  color: var(--dark);
+  text-align: center;
+}
+.offering-photo-wrap {
+  padding: 0 clamp(24px, 5.6vw, 80px);
+}
+.offering-photo {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: clamp(280px, 40vw, 520px);
+  background-color: #4A7060;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.photo-arrow {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.photo-arrow:hover { opacity: 1; }
+
+.offering-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 0 clamp(24px, 5.6vw, 80px);
+  max-width: calc(1280px + clamp(48px, 11.2vw, 160px));
+  margin: 0 auto;
+  width: 100%;
+}
+.offering-body {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 30px;
+  color: var(--dark);
+  opacity: 0.7;
+  max-width: 660px;
+}
+
+/* ── PRIVATE EVENTS ── */
+.events-section {
+  display: flex;
+  align-items: stretch;
+  min-height: 800px;
+}
+.events-photo {
+  flex: 1;
+  min-width: 0;
+  background-color: #4A6858;
+  background-size: cover;
+  background-position: center;
+  min-height: 480px;
+}
 .events-content {
-  order: 1;
+  flex: 1;
+  min-width: 0;
   background: var(--bg-dark);
-  padding: clamp(48px, 6vw, 96px) clamp(40px, 5vw, 80px);
-  display: flex; flex-direction: column;
-  justify-content: center; gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 72px;
+  padding: clamp(48px, 5.6vw, 80px);
 }
-.events-content .label { color: var(--amber); display: block; }
-.events-title { font-size: clamp(32px, 4vw, 52px); color: var(--cream); }
-.events-content p { font-size: 16px; color: rgba(247,240,220,0.7); line-height: 1.7; max-width: 380px; }
+.events-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.events-head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.events-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.1;
+  color: var(--cream);
+}
+.events-body {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 30px;
+  color: var(--cream);
+  opacity: 0.7;
+  max-width: 550px;
+}
 
-/* OFF-SITE */
-.offsite-section { background: var(--cream); padding: var(--section-pad) 0; }
-.offsite-inner { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-.service-card {
-  background: var(--offwhite);
-  padding: 40px 36px;
-  border-top: 4px solid var(--amber);
-  display: flex; flex-direction: column; gap: 16px;
-  border-radius: var(--radius);
+/* ── SERVICE ITEMS ── */
+.items-section {
+  background: #fffff4;
+  padding: var(--section-pad) clamp(24px, 5.6vw, 80px);
 }
-.service-icon { font-size: 32px; }
-.service-card h3 { font-family: var(--font-label); font-weight: 600; font-size: 22px; }
-.service-card p { font-size: 15px; color: var(--text-muted); line-height: 1.7; flex: 1; }
+.items-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.service-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+  min-width: min(100%, 480px);
+}
+.service-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 620 / 480;
+  background-color: #4A7060;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.service-label {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  padding: 20px;
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  color: var(--dark);
+  white-space: nowrap;
+}
+.service-desc {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 30px;
+  color: var(--dark);
+  opacity: 0.7;
+  text-align: center;
+}
 
-/* CTA */
-.services-cta {
-  position: relative; min-height: 380px;
-  display: flex; align-items: center;
-  background-color: #3D5A50;
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .events-section { flex-direction: column; }
+  .events-photo { min-height: 360px; }
+  .offering-footer { flex-direction: column; align-items: flex-start; }
 }
-.cta-overlay { position: absolute; inset: 0; background: rgba(26,9,5,0.6); }
-.cta-content {
-  position: relative; z-index: 1;
-  padding: 80px clamp(20px, 5vw, 80px);
-  display: flex; flex-direction: column; align-items: flex-start; gap: 32px;
-}
-.cta-text { font-size: clamp(32px, 5vw, 60px); color: var(--cream); line-height: 1.1; }
-.cta-text em { font-style: normal; color: var(--amber); }
-
-@media (max-width: 768px) {
-  .intro-inner, .daily-section, .events-section, .offsite-inner {
-    grid-template-columns: 1fr;
-  }
-  .daily-photo { height: 280px; order: -1; }
-  .events-photo { order: -1; height: 280px; }
-  .offsite-inner { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+  .services-hero { height: 320px; }
+  .photo-arrow { width: 48px; height: 48px; }
+  .service-label { bottom: 60px; font-size: 20px; padding: 14px; }
+  .items-inner { gap: 56px; }
 }
 </style>

@@ -3,35 +3,34 @@
 
   const menuData = {
     Monday: [
-      { name: 'Chicken Soup', price: '$7', desc: 'Homemade chicken soup simmered with local vegetables, dumplings and island spices. A warm, comforting bowl to start your meal.' },
-      { name: 'Fry Chicken', price: '$9', desc: 'Golden-fried chicken seasoned Caymanian-style. Crispy on the outside, juicy all the way through. Served with your choice of side.' },
-      { name: 'Curry Chicken', price: '$10', desc: 'Tender chicken slow-cooked in a rich Caribbean curry sauce with potatoes and peppers. Served with white rice or rice and peas.' },
+      { name: 'Chicken Soup',  price: '$7',  desc: 'Homemade chicken soup simmered with local vegetables, dumplings and island spices. A warm, comforting bowl to start your meal.',                          photo: '/photos/menu-soup.jpg' },
+      { name: 'Fry Chicken',   price: '$9',  desc: 'Golden-fried chicken seasoned Caymanian-style. Crispy on the outside, juicy all the way through. Served with your choice of side.',                     photo: '/photos/menu-fry-chicken.jpg' },
+      { name: 'Curry Chicken', price: '$10', desc: 'Tender chicken slow-cooked in a rich Caribbean curry sauce with potatoes and peppers. Served with white rice or rice and peas.',                         photo: '/photos/menu-curry.jpg' },
     ],
     Tuesday: [
-      { name: 'Oxtail', price: '$12', desc: 'Fall-off-the-bone oxtail braised for hours in a rich, dark gravy. Served with rice and peas and fresh coleslaw on the side.' },
-      { name: 'Curry Beef', price: '$11', desc: 'Authentic Caribbean curry, melt-in-your-mouth tender.' },
-      { name: 'Jerk Chicken', price: '$10', desc: 'Marinated overnight in scotch bonnet, allspice and fresh thyme. Grilled until the skin blisters and the inside stays juicy.' },
-      { name: 'BBQ Chicken', price: '$10', desc: 'Smoky, charred chicken glazed with our homemade BBQ sauce. Bold, sticky and full of island flavor every single time.' },
+      { name: 'Oxtail',        price: '$12', desc: 'Fall-off-the-bone oxtail braised for hours in a rich, dark gravy. Served with rice and peas and fresh coleslaw on the side.',                           photo: '/photos/menu-oxtail.jpg', featured: true },
+      { name: 'BBQ Chicken',   price: '$10', desc: 'Smoky, charred chicken glazed with our homemade BBQ sauce. Bold, sticky and full of island flavor every single time.',                                   photo: '/photos/menu-bbq.jpg' },
+      { name: 'Jerk Chicken',  price: '$10', desc: 'Marinated overnight in scotch bonnet, allspice and fresh thyme. Grilled until the skin blisters and the inside stays juicy.',                           photo: '/photos/menu-jerk.jpg' },
     ],
     Wednesday: [
-      { name: 'Brown Stew Fish', price: '$12', desc: 'Fresh local fish braised low and slow in a rich brown gravy with peppers, onions and island spices.' },
-      { name: 'Stew Beef', price: '$11', desc: 'Braised beef in rich brown gravy with fresh vegetables.' },
-      { name: 'Pepper Steak', price: '$12', desc: 'Beef with peppers and our house pepper sauce.' },
+      { name: 'Brown Stew Fish', price: '$12', desc: 'Fresh local fish braised low and slow in a rich brown gravy with peppers, onions and island spices.',                                                  photo: '/photos/menu-fish.jpg' },
+      { name: 'Stew Beef',       price: '$11', desc: 'Braised beef in rich brown gravy with fresh vegetables and island spices. Served with rice and peas.',                                                 photo: '/photos/menu-stew-beef.jpg' },
+      { name: 'Pepper Steak',    price: '$12', desc: 'Tender beef with mixed peppers and our house pepper sauce. Bold and deeply flavourful.',                                                               photo: '/photos/menu-pepper-steak.jpg' },
     ],
     Thursday: [
-      { name: 'Stew Conch', price: '$12', desc: 'Tender conch stew braised in tomato and island spices.' },
-      { name: 'Rondon', price: '$11', desc: 'The Caymanian one-pot — salt fish in coconut milk with breadfruit.' },
-      { name: 'Roast Pork', price: '$11', desc: 'Slow-oven-roasted pork seasoned with Caymanian herbs and spices. Tender, moist and deeply flavorful.' },
+      { name: 'Stew Conch',    price: '$12', desc: 'Tender conch stew braised in tomato and island spices. A true Caribbean classic.',                                                                       photo: '/photos/menu-conch.jpg' },
+      { name: 'Rondon',        price: '$11', desc: 'The Caymanian one-pot — salt fish in coconut milk with breadfruit, dumplings and ground provisions.',                                                    photo: '/photos/menu-rondon.jpg', featured: true },
+      { name: 'Roast Pork',    price: '$11', desc: 'Slow-oven-roasted pork seasoned with Caymanian herbs and spices. Tender, moist and deeply flavorful.',                                                  photo: '/photos/menu-pork.jpg' },
     ],
     Friday: [
-      { name: 'Jerk Pork', price: '$12', desc: 'Pork marinated in jerk spices, grilled over open fire.' },
-      { name: 'Jerk Chicken', price: '$10', desc: 'Our most popular grill — full of flavour.' },
-      { name: 'Conch & Beans', price: '$12', desc: 'A Caymanian staple — slow cooked with butter beans.' },
+      { name: 'Jerk Pork',     price: '$12', desc: 'Pork marinated in jerk spices, grilled over open fire. Smoky, spicy and utterly satisfying.',                                                           photo: '/photos/menu-jerk-pork.jpg' },
+      { name: 'Jerk Chicken',  price: '$10', desc: 'Our most popular grill item — marinated overnight and packed with flavour. Full of island character.',                                                   photo: '/photos/menu-jerk.jpg' },
+      { name: 'Conch & Beans', price: '$12', desc: 'A Caymanian staple — slow cooked with butter beans. Hearty and homestyle.',                                                                             photo: '/photos/menu-conch.jpg' },
     ],
     Saturday: [
-      { name: 'Roast Beef', price: '$12', desc: 'Slow-roasted beef seasoned with Caribbean spices. Carved fresh and served with gravy.' },
-      { name: 'Stew Chicken', price: '$10', desc: 'Chicken pieces slow-stewed in a savory brown sauce with onions, thyme and local seasonings.' },
-      { name: 'Jerk Chicken', price: '$10', desc: 'Marinated overnight in scotch bonnet, allspice and fresh thyme. Grilled until the skin blisters.' },
+      { name: 'Roast Beef',    price: '$12', desc: 'Slow-roasted beef seasoned with Caribbean spices. Carved fresh and served with gravy and your choice of side.',                                          photo: '/photos/menu-roast-beef.jpg' },
+      { name: 'Stew Chicken',  price: '$10', desc: 'Chicken pieces slow-stewed in a savory brown sauce with onions, thyme and local seasonings. A classic Caribbean comfort dish.',                         photo: '/photos/menu-stew-chicken.jpg' },
+      { name: 'Jerk Chicken',  price: '$10', desc: 'Marinated overnight in scotch bonnet, allspice and fresh thyme. Grilled until the skin blisters and the inside stays juicy.',                           photo: '/photos/menu-jerk.jpg' },
     ],
   };
 
@@ -39,21 +38,19 @@
 </script>
 
 <svelte:head>
-  <title>Our Daily Rotating Menu — Seaside Paradise Restaurant</title>
+  <title>Our Daily Rotating Menu — Seaside Paradise</title>
 </svelte:head>
 
-<!-- HERO -->
-<section class="menu-hero">
-  <div class="container">
-    <span class="label">Discover Our</span>
-    <h1 class="display menu-heading">Our Daily<br />Rotating<br />Menu</h1>
-    <p class="menu-sub">Fresh every day. Ask us what's hot when you walk in.</p>
+<!-- ── HEADING ── -->
+<section class="menu-heading">
+  <div class="heading-inner">
+    <h1 class="menu-title">Our Daily<br />Rotating Menu</h1>
   </div>
 </section>
 
-<!-- DAY TABS -->
-<section class="menu-main">
-  <div class="container">
+<!-- ── DAY TABS ── -->
+<section class="menu-section">
+  <div class="menu-inner">
     <div class="day-tabs" role="tablist" aria-label="Menu days">
       {#each days as day}
         <button
@@ -63,130 +60,274 @@
           role="tab"
           aria-selected={activeDay === day}
         >
-          {day.slice(0, 3).toUpperCase()}
+          {day.toUpperCase()}
         </button>
       {/each}
     </div>
 
-    <div class="menu-items" role="tabpanel">
+    <!-- Menu cards -->
+    <div class="menu-grid" role="tabpanel">
       {#each menuData[activeDay] as item (item.name)}
-        <div class="menu-item">
-          <div class="item-color-bar"></div>
-          <div class="item-body">
-            <div class="item-header">
-              <h3 class="item-name">{item.name}</h3>
-              <span class="item-price">{item.price}</span>
+        <div class="menu-card" class:featured={item.featured}>
+          <div class="card-photo photo-bg" style="background-image:url('{item.photo}')"></div>
+          <div class="card-content">
+            <div class="card-text-wrap">
+              <div class="card-meta">
+                <span class="card-price">{item.price}</span>
+                <h3 class="card-name">{item.name}</h3>
+              </div>
+              <p class="card-desc">{item.desc}</p>
             </div>
-            <p class="item-desc">{item.desc}</p>
+            <div class="card-line"></div>
           </div>
         </div>
       {/each}
     </div>
 
-    <p class="menu-note">Menu changes daily based on what's fresh. Items may vary. Ask us what's available today.</p>
+    <p class="menu-note">Menu changes daily based on what's fresh. Items may vary — ask us what's hot today.</p>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="menu-cta photo-bg" style="background-image:url('/photos/beach-trees.jpg')">
-  <div class="cta-overlay"></div>
-  <div class="container cta-content">
-    <h2 class="display cta-text">Good food,<br /><em>good vibes,</em><br />every day.</h2>
-    <a href="/contact" class="btn btn-outline-cream">Come Visit Us</a>
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-pill photo-bg" style="background-image:url('/photos/cta-bg.jpg')">
+    <div class="cta-overlay"></div>
+    <div class="cta-text">
+      <span class="cta-line cream">Good food,</span>
+      <span class="cta-line amber">good vibes,</span>
+      <span class="cta-line cream">every day.</span>
+    </div>
+    <a href="/contact" class="cta-btn">Come Visit Us</a>
   </div>
 </section>
 
 <style>
-/* HERO */
-.menu-hero {
-  background: var(--offwhite);
-  padding: clamp(80px, 10vw, 140px) 0 clamp(48px, 6vw, 80px);
-  border-bottom: 1px solid var(--border);
+/* ── HEADING ── */
+.menu-heading {
+  background: #fffff4;
+  padding: clamp(56px, 7vw, 100px) clamp(24px, 5.6vw, 80px) clamp(40px, 5vw, 72px);
+  text-align: center;
 }
-.menu-hero .label { display: block; margin-bottom: 12px; }
-.menu-heading { font-size: clamp(40px, 7vw, 80px); margin-bottom: 16px; }
-.menu-sub { font-size: 16px; color: var(--text-muted); }
+.heading-inner { max-width: 1280px; margin: 0 auto; }
+.menu-title {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 80px);
+  line-height: 1.1;
+  color: var(--dark);
+  text-align: center;
+}
 
-/* MENU MAIN */
-.menu-main { background: var(--cream); padding: 56px 0; }
+/* ── MENU SECTION ── */
+.menu-section { background: #fffff4; padding: 0 clamp(24px, 5.6vw, 80px) var(--section-pad); }
+.menu-inner { max-width: 1280px; margin: 0 auto; }
 
+/* Day tabs */
 .day-tabs {
   display: flex;
-  gap: 0;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 48px;
+  gap: clamp(24px, 5vw, 72px);
+  margin-bottom: 64px;
   overflow-x: auto;
   scrollbar-width: none;
 }
 .day-tabs::-webkit-scrollbar { display: none; }
 
 .day-tab {
-  font-family: var(--font-label);
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  padding: 12px 24px;
-  color: var(--text-muted);
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: color 0.2s, border-color 0.2s;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1.92px;
+  color: var(--dark);
+  opacity: 0.5;
+  padding-bottom: 12px;
+  border-bottom: 2px solid transparent;
   white-space: nowrap;
+  transition: opacity 0.2s, border-color 0.2s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
 }
-.day-tab:hover { color: var(--dark); }
-.day-tab.active { color: var(--dark); border-bottom-color: var(--amber); }
+.day-tab:hover { opacity: 0.75; }
+.day-tab.active {
+  opacity: 1;
+  border-bottom-color: var(--dark);
+}
 
-.menu-items {
+/* Menu grid */
+.menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 0;
   margin-bottom: 40px;
 }
 
-.menu-item {
-  background: var(--offwhite);
+.menu-card {
   display: flex;
-  gap: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: transform 0.2s;
+  flex-direction: column;
+  align-items: center;
 }
-.menu-item:hover { transform: translateY(-2px); }
-.item-color-bar { width: 5px; background: var(--amber); flex-shrink: 0; }
-.item-body { padding: 20px; }
-.item-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
-.item-name { font-family: var(--font-label); font-weight: 600; font-size: 17px; }
-.item-price { font-family: var(--font-label); font-size: 16px; color: var(--amber); flex-shrink: 0; font-weight: 600; }
-.item-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+.card-photo {
+  height: 320px;
+  width: 100%;
+  background-color: #5A7060;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid rgba(45,26,20,0.2);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  padding: 24px 20px 32px;
+}
+
+.card-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.card-price {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--dark);
+  opacity: 0.4;
+  text-align: right;
+  width: 100%;
+}
+
+.card-name {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  color: var(--dark);
+  text-align: center;
+  width: 100%;
+}
+
+.card-desc {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--dark);
+  opacity: 0.7;
+  text-align: center;
+}
+
+.card-line {
+  width: 80px;
+  height: 1px;
+  background: var(--dark);
+}
+
+/* Featured (dark) card variant */
+.menu-card.featured .card-content {
+  background: var(--bg-dark);
+  border-color: transparent;
+}
+.menu-card.featured .card-name { color: var(--amber); }
+.menu-card.featured .card-price { color: var(--cream); opacity: 0.7; }
+.menu-card.featured .card-desc { color: var(--cream); opacity: 0.9; }
+.menu-card.featured .card-line { background: var(--amber); }
 
 .menu-note {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
   font-style: italic;
   text-align: center;
 }
 
-/* CTA */
-.menu-cta {
+/* ── CTA ── */
+.cta-section {
+  background: #fffff4;
+  padding: 0 clamp(24px, 5.6vw, 80px) var(--section-pad);
+}
+.cta-pill {
   position: relative;
-  min-height: 380px;
+  max-width: 1280px;
+  margin: 0 auto;
+  border-radius: 1000px;
+  overflow: hidden;
+  padding: 80px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 36px;
   background-color: #3D5A50;
+  background-size: cover;
+  background-position: center;
 }
-.cta-overlay { position: absolute; inset: 0; background: rgba(26,9,5,0.6); }
-.cta-content {
-  position: relative; z-index: 1;
-  padding: 80px clamp(20px, 5vw, 80px);
-  display: flex; flex-direction: column; align-items: flex-start; gap: 32px;
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,9,5,0.6);
 }
-.cta-text { font-size: clamp(32px, 5vw, 60px); color: var(--cream); line-height: 1.1; }
-.cta-text em { font-style: normal; color: var(--amber); }
+.cta-text {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.1;
+  text-align: center;
+}
+.cta-line { display: block; }
+.cta-line.cream { color: var(--cream); }
+.cta-line.amber { color: var(--amber); }
 
-@media (max-width: 900px) {
-  .menu-items { grid-template-columns: repeat(2, 1fr); }
+.cta-btn {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  color: var(--cream);
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  padding: 12px 56px;
+  border-radius: 100px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
 }
-@media (max-width: 600px) {
-  .menu-items { grid-template-columns: 1fr; }
-  .day-tab { padding: 12px 14px; }
+.cta-btn:hover { opacity: 0.9; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .menu-grid { grid-template-columns: 1fr; }
+  .cta-pill { border-radius: 40px; padding: 56px 32px; }
+  .day-tabs { gap: 20px; }
+}
+@media (max-width: 480px) {
+  .card-photo { height: 220px; }
+  .cta-section { padding-left: 0; padding-right: 0; }
+  .cta-pill { border-radius: 0; }
 }
 </style>
