@@ -62,3 +62,4 @@ User-agent: DuckDuckBot
 Allow: /
 
 Sitemap: https://seasideparadise.ky/sitemap.xml
+LLMs: https://seasideparadise.ky/llms.txt
