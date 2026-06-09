@@ -2,12 +2,32 @@
   let form = { name: '', phone: '', email: '', message: '', agreed: false };
   let submitted = false;
   let submitting = false;
+  let formError = null;
 
   async function handleSubmit() {
     if (!form.agreed) return;
     submitting = true;
-    await new Promise(r => setTimeout(r, 800));
-    submitted = true;
+    formError = null;
+    try {
+      const res = await fetch('https://formspree.io/seasideparadiseky@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        submitted = true;
+      } else {
+        const data = await res.json();
+        formError = data.errors?.[0]?.message || 'Something went wrong. Please try again.';
+      }
+    } catch {
+      formError = 'Network error. Please check your connection and try again.';
+    }
     submitting = false;
   }
 
@@ -26,7 +46,7 @@
 </svelte:head>
 
 <!-- ── HEADING + CONTACT FORM ──────────────────────────────────── -->
-<section class="form-section">
+<section class="form-section" id="form">
   <div class="form-row-top">
     <h1 class="form-title">
       <span class="t-80">Connect</span>
@@ -60,6 +80,9 @@
               {submitting ? 'Sending…' : 'Send Message'}
             </button>
           </div>
+          {#if formError}
+            <p class="form-error">{formError}</p>
+          {/if}
         </form>
       {/if}
     </div>
@@ -86,19 +109,22 @@
     </div>
   </div>
 
-  <div class="map" style="background-image:url('/photos/contact-map.png')">
-    <a href="https://maps.google.com/?q=Seaside+Paradise+Restaurant+Bodden+Town" target="_blank" rel="noopener" class="map-pin" aria-label="Restaurant location">
-      <svg width="40" height="44" viewBox="0 0 40 44" fill="none">
-        <path d="M20 0C9 0 0 8.6 0 19.3 0 33 20 44 20 44s20-11 20-24.7C40 8.6 31 0 20 0z" fill="#B8311F"/>
-        <circle cx="20" cy="19" r="7" fill="#F7F0DC"/>
-      </svg>
-    </a>
-    <a href="https://maps.google.com/?q=Seaside+Paradise+Restaurant+Bodden+Town" target="_blank" rel="noopener" class="map-btn">View in Maps</a>
+  <div class="map-wrap">
+    <iframe
+      class="map-frame"
+      src="https://maps.google.com/maps?q=Seaside+Paradise+Restaurant+166+Bodden+Town+Road+Grand+Cayman&output=embed&z=16"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Seaside Paradise Restaurant on Google Maps"
+    ></iframe>
+    <a href="https://maps.google.com/?q=Seaside+Paradise+Restaurant+166+Bodden+Town+Road+Grand+Cayman" target="_blank" rel="noopener" class="map-btn">View in Maps</a>
   </div>
 </section>
 
 <!-- ── CONTACT + PHOTO (Find us here) ──────────────────────────── -->
 <section class="findus-section">
+  <div class="findus-inner">
   <div class="findus-photo" style="background-image:url('/photos/contact-photo.jpg')"></div>
   <div class="findus-content">
     <div class="findus-title">
@@ -109,6 +135,10 @@
       <div class="fi-row">
         <span class="fi-label">Phone</span>
         <a class="fi-value" href="tel:+13455164367">+1 (345) 516-4367</a>
+      </div>
+      <div class="fi-row">
+        <span class="fi-label">WhatsApp</span>
+        <a class="fi-value whatsapp-link" href="https://wa.me/13455164367" target="_blank" rel="noopener">Message us on WhatsApp</a>
       </div>
       <div class="fi-row">
         <span class="fi-label">Instagram &amp; TikTok</span>
@@ -123,10 +153,12 @@
       </div>
     </div>
   </div>
+  </div>
 </section>
 
 <!-- ── FAQ ─────────────────────────────────────────────────────── -->
 <section class="faq-section">
+  <div class="faq-inner">
   <div class="faq-left">
     {#each faqs as faq, i}
       <div class="faq-item" class:open={openFaq === i}>
@@ -149,7 +181,8 @@
       <span class="faq-eyebrow">FAQ</span>
       <h2 class="faq-heading">Answers for<br />Questions</h2>
     </div>
-    <a href="/menu" class="faq-ask">Ask A Question</a>
+    <a href="/contact#form" class="faq-ask">Ask A Question</a>
+  </div>
   </div>
 </section>
 
@@ -173,7 +206,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 60px;
-    max-width: 1440px;
+    max-width: 1280px;
     margin: 0 auto;
   }
   .form-title {
@@ -205,7 +238,7 @@
     outline: none;
   }
   .finput::placeholder { color: var(--dark); opacity: 0.3; }
-  .ftext { width: 100%; height: 140px; resize: none; }
+  .ftext { width: 100%; height: 200px; resize: vertical; min-height: 140px; }
 
   .checklist-btn {
     display: flex;
@@ -241,6 +274,13 @@
   .send-btn:hover { opacity: 0.9; }
   .send-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
+  .form-error {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--red);
+    font-family: var(--font-body);
+  }
+
   .success-msg {
     text-align: center; padding: 40px;
     display: flex; flex-direction: column; align-items: center; gap: 16px;
@@ -268,20 +308,22 @@
   .info-text { font-family: var(--font-body); font-size: 16px; line-height: 24px; color: var(--cream); text-align: center; width: 252px; }
   .info-line { width: 1px; height: 160px; background: var(--amber); flex-shrink: 0; }
 
-  .map {
+  .map-wrap {
     position: relative;
     width: 1280px;
     max-width: 100%;
-    height: 522px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 24px;
+    height: 560px;
   }
-  .map-pin { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -100%); }
+  .map-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
   .map-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
     background: var(--dark);
     color: var(--cream);
     border-radius: 100px;
@@ -291,16 +333,21 @@
     font-size: 16px;
     line-height: 24px;
     transition: opacity 0.2s;
+    z-index: 1;
   }
   .map-btn:hover { opacity: 0.9; }
 
   /* ── FIND US ─────────────────────────────────────────────────── */
   .findus-section {
     background: #fffff4;
+    padding: clamp(48px, 5.6vw, 80px) clamp(24px, 5.6vw, 80px);
+  }
+  .findus-inner {
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 80px 90px 80px 80px;
     gap: 80px;
   }
   .findus-photo {
@@ -325,14 +372,20 @@
   .fi-value { font-family: var(--font-body); font-size: 20px; line-height: 30px; color: var(--dark); opacity: 0.5; text-align: right; }
   .fi-stack { display: flex; flex-direction: column; }
   .fi-value a:hover { opacity: 1; color: var(--red); }
+  .whatsapp-link { color: #25D366; opacity: 0.85; }
+  .whatsapp-link:hover { opacity: 1; color: #25D366 !important; }
 
   /* ── FAQ ─────────────────────────────────────────────────────── */
   .faq-section {
     background: #fffff4;
+    padding: 0 clamp(24px, 5.6vw, 80px) clamp(60px, 8vw, 120px);
+  }
+  .faq-inner {
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 0 80px 120px;
     gap: 80px;
   }
   .faq-left { display: flex; flex-direction: column; gap: 16px; width: 700px; flex-shrink: 0; }
@@ -413,10 +466,10 @@
   @media (max-width: 1180px) {
     .form-row-top { flex-direction: column; align-items: flex-start; gap: 48px; }
     .contact-form-wrap { width: 100%; }
-    .findus-section { flex-direction: column; align-items: stretch; }
+    .findus-inner { flex-direction: column; align-items: stretch; }
     .findus-photo { width: 100%; }
     .fi-row { width: 100%; }
-    .faq-section { flex-direction: column; }
+    .faq-inner { flex-direction: column; }
     .faq-left { width: 100%; }
     .faq-right { align-self: auto; align-items: flex-start; text-align: left; gap: 32px; }
     .faq-title { align-items: flex-start; }
@@ -432,8 +485,8 @@
     .info-heading { font-size: 40px; line-height: 48px; }
     .info-cols { flex-direction: column; gap: 40px; width: 100%; }
     .info-line { width: 160px; height: 1px; }
-    .map { height: 360px; }
-    .findus-section { padding: 56px 24px; }
+    .map-wrap { height: 360px; }
+    .findus-section { padding: 40px 24px; }
     .findus-heading { font-size: 44px; line-height: 52px; }
     .findus-photo { height: 320px; }
     .frow { flex-direction: column; gap: 40px; }

@@ -1,3 +1,14 @@
+<script>
+  const photos = [
+    '/photos/services-interior.jpg',
+    '/photos/about-hero.jpg',
+    '/photos/values-bg.jpg',
+  ];
+  let photoIndex = 0;
+  function prevPhoto() { photoIndex = (photoIndex - 1 + photos.length) % photos.length; }
+  function nextPhoto() { photoIndex = (photoIndex + 1) % photos.length; }
+</script>
+
 <svelte:head>
   <title>Services & Catering — Seaside Paradise</title>
 </svelte:head>
@@ -6,7 +17,10 @@
 <section class="services-hero photo-bg" style="background-image:url('/photos/services-hero.jpg')">
   <div class="hero-overlay"></div>
   <div class="hero-title-wrap">
-    <h1 class="hero-title">What We<br />Do<br />For You</h1>
+    <h1 class="hero-title">
+      <span>What We</span>
+      <span class="hero-title-row"><span>Do</span><span>For You</span></span>
+    </h1>
   </div>
 </section>
 
@@ -18,13 +32,18 @@
   </div>
 
   <div class="offering-photo-wrap">
-    <div class="offering-photo photo-bg" style="background-image:url('/photos/services-interior.jpg')">
-      <button class="photo-arrow arrow-left" aria-label="Previous photo">
+    <div class="offering-photo photo-bg" style="background-image:url('{photos[photoIndex]}')">
+      <button class="photo-arrow arrow-left" aria-label="Previous photo" on:click={prevPhoto}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M20 26L10 16L20 6" stroke="#2D1A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <button class="photo-arrow arrow-right" aria-label="Next photo">
+      <button class="photo-arrow arrow-right" aria-label="Next photo" on:click={nextPhoto}>
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M12 6L22 16L12 26" stroke="#2D1A14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+    </div>
+    <div class="photo-dots">
+      {#each photos as _, i}
+        <button class="photo-dot" class:active={photoIndex === i} on:click={() => photoIndex = i} aria-label="Photo {i + 1}"></button>
+      {/each}
     </div>
   </div>
 
@@ -149,6 +168,13 @@
   font-size: clamp(48px, 6vw, 80px);
   line-height: 1.1;
   color: var(--cream);
+  display: flex;
+  flex-direction: column;
+}
+.hero-title-row {
+  display: flex;
+  gap: 0.25em;
+  align-items: baseline;
 }
 
 /* ── OFFERING ── */
@@ -157,7 +183,7 @@
   display: flex;
   flex-direction: column;
   gap: 56px;
-  padding: var(--section-pad) 0;
+  padding: var(--section-pad) clamp(24px, 5.6vw, 80px);
 }
 .offering-header {
   display: flex;
@@ -165,7 +191,9 @@
   gap: 16px;
   align-items: center;
   text-align: center;
-  padding: 0 clamp(24px, 5.6vw, 80px);
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
 }
 .offering-title {
   font-family: var(--font-display);
@@ -175,8 +203,24 @@
   text-align: center;
 }
 .offering-photo-wrap {
-  padding: 0 clamp(24px, 5.6vw, 80px);
 }
+.photo-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 16px 0 0;
+}
+.photo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  background: rgba(45,26,20,0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.photo-dot.active { width: 28px; background: var(--dark); }
 .offering-photo {
   position: relative;
   width: 100%;
@@ -213,8 +257,7 @@
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
-  padding: 0 clamp(24px, 5.6vw, 80px);
-  max-width: calc(1280px + clamp(48px, 11.2vw, 160px));
+  max-width: var(--container);
   margin: 0 auto;
   width: 100%;
 }
@@ -311,7 +354,7 @@
 }
 .service-label {
   position: absolute;
-  bottom: 80px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--cream);
@@ -341,7 +384,7 @@
 @media (max-width: 600px) {
   .services-hero { height: 320px; }
   .photo-arrow { width: 48px; height: 48px; }
-  .service-label { bottom: 60px; font-size: 20px; padding: 14px; }
+  .service-label { bottom: 16px; font-size: 20px; padding: 14px; }
   .items-inner { gap: 56px; }
 }
 </style>

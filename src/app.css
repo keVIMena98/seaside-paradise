@@ -16,7 +16,7 @@
 
   --navbar-h: 100px;
   --section-pad: clamp(60px, 8vw, 120px);
-  --container: 1280px;
+  --container: 1600px;
   --radius: 4px;
 }
 
@@ -39,7 +39,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 80px);
 }
 
 .label {

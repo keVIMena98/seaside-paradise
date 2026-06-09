@@ -12,8 +12,9 @@
           <nav class="col-items">
             <a href="/">Home</a>
             <a href="/about">About</a>
-            <a href="/catering">Services</a>
+            <a href="/menu">Menu</a>
             <a href="/catering">Catering</a>
+            <a href="/contact">Contact</a>
           </nav>
         </div>
 
@@ -72,7 +73,7 @@
     <div class="footer-bottom">
       <p>Copyright &copy; Rodneys Group Ltd. All rights reserved.</p>
       <div class="footer-legal">
-        <a href="/credits" class="credit-link">Credit</a>
+        <a href="https://www.sparkframelabs.com" class="credit-link" target="_blank" rel="noopener noreferrer">Credit</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms &amp; Conditions</a>
       </div>
@@ -210,9 +211,9 @@
   }
 
   .footer-logo {
-    height: 43px;
+    height: 56px;
     width: auto;
-    max-width: 155px;
+    max-width: 200px;
     display: block;
   }
 

@@ -22,7 +22,10 @@
 <section class="about-hero photo-bg" style="background-image:url('/photos/about-hero.jpg')">
   <div class="hero-overlay"></div>
   <div class="hero-title-wrap">
-    <h1 class="hero-title">About<br />Our<br />Restaurant</h1>
+    <h1 class="hero-title">
+      <span>About</span>
+      <span class="hero-title-row"><span>Our</span><span>Restaurant</span></span>
+    </h1>
   </div>
 </section>
 
@@ -32,7 +35,10 @@
     <div class="story-content">
       <div class="story-head">
         <p class="eyebrow-red">OUR STORY</p>
-        <h2 class="story-title">Authentic Caribbean cooking<br />right in Bodden Town.</h2>
+        <h2 class="story-title">
+        <span class="story-title-row"><span>Authentic</span><span>Caribbean cooking</span></span>
+        <span>right in Bodden Town.</span>
+      </h2>
       </div>
       <div class="story-body">
         <p>We're a small local restaurant with a big heart. Part of the Rodneys Group, Seaside Paradise has been feeding Bodden Town — and anyone lucky enough to find us — with fresh, homestyle Caribbean food. Our back deck looks out over the water. Pull up a chair.</p>
@@ -175,7 +181,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 0 0 0 clamp(24px, 5.6vw, 80px);
+  padding: 0 0 clamp(24px, 3.6vw, 52px) clamp(24px, 5.6vw, 80px);
   z-index: 1;
 }
 .hero-title {
@@ -183,6 +189,19 @@
   font-size: clamp(48px, 6vw, 80px);
   line-height: 1.1;
   color: var(--cream);
+  display: flex;
+  flex-direction: column;
+}
+.hero-title-row {
+  display: flex;
+  gap: 0.25em;
+  align-items: baseline;
+}
+.story-title-row {
+  display: flex;
+  gap: 0.25em;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
 
 /* ── STORY ── */
@@ -215,6 +234,8 @@
   font-size: clamp(32px, 5vw, 64px);
   line-height: 1.12;
   color: var(--dark);
+  display: flex;
+  flex-direction: column;
 }
 .story-body {
   display: flex;
@@ -242,7 +263,7 @@
 /* ── VALUES ── */
 .values-section {
   background: var(--bg-dark);
-  padding: clamp(60px, 7vw, 100px) clamp(24px, 7vw, 100px);
+  padding: clamp(60px, 7vw, 100px) clamp(24px, 5.6vw, 80px);
 }
 .values-inner {
   max-width: 1280px;

@@ -102,7 +102,10 @@
 <!-- ── ABOUT ───────────────────────────────────────────────────── -->
 <section class="about-section">
   <div class="about-inner" use:reveal={{ y: 16 }}>
-    <h2 class="display about-title">The Real<br />Taste of<br />Grand Cayman</h2>
+    <h2 class="display about-title">
+      <span>The Real</span>
+      <span class="about-title-row"><span>Taste of</span><span>Grand Cayman</span></span>
+    </h2>
     <p class="about-body">We cook fresh every day. Our menu follows the catch — whatever the fishermen bring in and local farms provide that morning is what ends up on your plate. No shortcuts. Just real Caribbean cooking.</p>
   </div>
 </section>
@@ -130,6 +133,7 @@
 
 <!-- ── OUR VALUES ─────────────────────────────────────────────── -->
 <section class="values-section">
+  <div class="values-inner">
   <p class="values-story-lbl" use:reveal>OUR STORY</p>
   <div class="values-card" use:reveal={{ delay: 100 }}>
     <div>
@@ -147,6 +151,7 @@
         </li>
       {/each}
     </ul>
+  </div>
   </div>
 </section>
 
@@ -409,13 +414,12 @@
 
 /* ── CATEGORIES ───────────────────────────────────────────────── */
 .categories-section {
-  background: var(--offwhite);
-  padding: var(--section-pad) 0;
+  background: #fffff4;
+  padding: var(--section-pad) clamp(20px, 5.6vw, 80px);
 }
 .categories-inner {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 clamp(20px, 8vw, 120px);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -488,11 +492,13 @@
 
 /* ── ABOUT ────────────────────────────────────────────────────── */
 .about-section {
-  padding: 0 clamp(20px, 5vw, 80px);
-  background: var(--offwhite);
+  padding: 0 clamp(20px, 5.6vw, 80px);
+  background: #fffff4;
 }
 .about-inner {
   position: relative;
+  max-width: var(--container);
+  margin: 0 auto;
   height: clamp(360px, 44vw, 640px);
   background: url('/photos/testimonials-photo.jpg') center / cover no-repeat #3D5A50;
   display: flex;
@@ -519,6 +525,13 @@
   color: var(--cream);
   line-height: 1.08;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.about-title-row {
+  display: flex;
+  gap: 0.25em;
+  align-items: baseline;
 }
 .about-body {
   position: relative;
@@ -532,8 +545,8 @@
 
 /* ── FAVOURITES ───────────────────────────────────────────────── */
 .favourites-section {
-  background: var(--offwhite);
-  padding: var(--section-pad) 0;
+  background: #fffff4;
+  padding: var(--section-pad) clamp(20px, 5.6vw, 80px);
 }
 .fav-title {
   font-size: clamp(40px, 5.5vw, 80px);
@@ -601,10 +614,7 @@
 /* ── VALUES ───────────────────────────────────────────────────── */
 .values-section {
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: clamp(60px, 8vw, 120px) clamp(20px, 6vw, 100px);
+  padding: clamp(60px, 8vw, 120px) clamp(20px, 5.6vw, 80px);
   overflow: hidden;
   background: url('/photos/values-bg.jpg') center / cover no-repeat #3D5A50;
   min-height: 480px;
@@ -615,9 +625,17 @@
   inset: 0;
   background: rgba(26,9,5,0.38);
 }
-.values-story-lbl {
+.values-inner {
   position: relative;
   z-index: 1;
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+.values-story-lbl {
   font-family: var(--font-label);
   font-weight: 600;
   font-size: 16px;
@@ -627,8 +645,6 @@
   opacity: 0.75;
 }
 .values-card {
-  position: relative;
-  z-index: 1;
   background: var(--cream);
   padding: clamp(32px, 3vw, 48px) clamp(24px, 3vw, 48px) clamp(40px, 4vw, 60px);
   display: flex;
@@ -670,10 +686,10 @@
 
 /* ── SPECIALS ─────────────────────────────────────────────────── */
 .specials-section {
-  background: var(--offwhite);
-  padding: var(--section-pad) 0;
+  background: #fffff4;
+  padding: var(--section-pad) clamp(20px, 5.6vw, 80px);
 }
-.specials-lbl { display: block; }
+.specials-lbl { display: block; letter-spacing: 0.3em; }
 .specials-title {
   font-size: clamp(36px, 4.4vw, 64px);
   color: var(--dark);
@@ -738,11 +754,13 @@
 
 /* ── CTA ──────────────────────────────────────────────────────── */
 .cta-section {
-  padding: 0 clamp(20px, 5vw, 80px);
-  background: var(--offwhite);
+  padding: 0 clamp(20px, 5.6vw, 80px);
+  background: #fffff4;
 }
 .cta-inner {
   position: relative;
+  max-width: var(--container);
+  margin: 0 auto;
   background: url('/photos/cta-bg.jpg') center / cover no-repeat #3D5A50;
   overflow: hidden;
   display: flex;
@@ -751,7 +769,6 @@
   justify-content: center;
   gap: 32px;
   padding: clamp(60px, 8vw, 120px) 40px;
-  border-radius: 3px;
 }
 .cta-inner::before {
   content: '';
@@ -778,8 +795,8 @@
 
 /* ── FAQ ──────────────────────────────────────────────────────── */
 .faq-section {
-  background: var(--offwhite);
-  padding: var(--section-pad) 0;
+  background: #fffff4;
+  padding: var(--section-pad) clamp(20px, 5.6vw, 80px);
 }
 .faq-inner {
   display: grid;
@@ -833,7 +850,7 @@
 /* ── TESTIMONIALS ─────────────────────────────────────────────── */
 .testimonials-section {
   background: var(--bg-dark);
-  padding: clamp(60px, 7vw, 100px) 0 clamp(60px, 8vw, 120px);
+  padding: clamp(60px, 7vw, 100px) clamp(20px, 5.6vw, 80px) clamp(60px, 8vw, 120px);
 }
 .testimonials-section .label { display: block; }
 .testimonials-title {
@@ -911,8 +928,8 @@
 
 /* ── GALLERY ──────────────────────────────────────────────────── */
 .gallery-section {
-  background: var(--offwhite);
-  padding: var(--section-pad) 0;
+  background: #fffff4;
+  padding: var(--section-pad) clamp(20px, 5.6vw, 80px);
 }
 .g-main {
   height: clamp(280px, 41.7vw, 600px);

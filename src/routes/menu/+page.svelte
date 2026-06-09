@@ -1,55 +1,118 @@
 <script>
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-  const menuData = {
-    Monday: [
-      { name: 'Chicken Soup',  price: '$7',  desc: 'Homemade chicken soup simmered with local vegetables, dumplings and island spices. A warm, comforting bowl to start your meal.',                          photo: '/photos/menu-soup.jpg' },
-      { name: 'Fry Chicken',   price: '$9',  desc: 'Golden-fried chicken seasoned Caymanian-style. Crispy on the outside, juicy all the way through. Served with your choice of side.',                     photo: '/photos/menu-fry-chicken.jpg' },
-      { name: 'Curry Chicken', price: '$10', desc: 'Tender chicken slow-cooked in a rich Caribbean curry sauce with potatoes and peppers. Served with white rice or rice and peas.',                         photo: '/photos/menu-curry.jpg' },
-    ],
-    Tuesday: [
-      { name: 'Oxtail',        price: '$12', desc: 'Fall-off-the-bone oxtail braised for hours in a rich, dark gravy. Served with rice and peas and fresh coleslaw on the side.',                           photo: '/photos/menu-oxtail.jpg', featured: true },
-      { name: 'BBQ Chicken',   price: '$10', desc: 'Smoky, charred chicken glazed with our homemade BBQ sauce. Bold, sticky and full of island flavor every single time.',                                   photo: '/photos/menu-bbq.jpg' },
-      { name: 'Jerk Chicken',  price: '$10', desc: 'Marinated overnight in scotch bonnet, allspice and fresh thyme. Grilled until the skin blisters and the inside stays juicy.',                           photo: '/photos/menu-jerk.jpg' },
-    ],
-    Wednesday: [
-      { name: 'Brown Stew Fish', price: '$12', desc: 'Fresh local fish braised low and slow in a rich brown gravy with peppers, onions and island spices.',                                                  photo: '/photos/menu-fish.jpg' },
-      { name: 'Stew Beef',       price: '$11', desc: 'Braised beef in rich brown gravy with fresh vegetables and island spices. Served with rice and peas.',                                                 photo: '/photos/menu-stew-beef.jpg' },
-      { name: 'Pepper Steak',    price: '$12', desc: 'Tender beef with mixed peppers and our house pepper sauce. Bold and deeply flavourful.',                                                               photo: '/photos/menu-pepper-steak.jpg' },
-    ],
-    Thursday: [
-      { name: 'Stew Conch',    price: '$12', desc: 'Tender conch stew braised in tomato and island spices. A true Caribbean classic.',                                                                       photo: '/photos/menu-conch.jpg' },
-      { name: 'Rondon',        price: '$11', desc: 'The Caymanian one-pot — salt fish in coconut milk with breadfruit, dumplings and ground provisions.',                                                    photo: '/photos/menu-rondon.jpg', featured: true },
-      { name: 'Roast Pork',    price: '$11', desc: 'Slow-oven-roasted pork seasoned with Caymanian herbs and spices. Tender, moist and deeply flavorful.',                                                  photo: '/photos/menu-pork.jpg' },
-    ],
-    Friday: [
-      { name: 'Jerk Pork',     price: '$12', desc: 'Pork marinated in jerk spices, grilled over open fire. Smoky, spicy and utterly satisfying.',                                                           photo: '/photos/menu-jerk-pork.jpg' },
-      { name: 'Jerk Chicken',  price: '$10', desc: 'Our most popular grill item — marinated overnight and packed with flavour. Full of island character.',                                                   photo: '/photos/menu-jerk.jpg' },
-      { name: 'Conch & Beans', price: '$12', desc: 'A Caymanian staple — slow cooked with butter beans. Hearty and homestyle.',                                                                             photo: '/photos/menu-conch.jpg' },
-    ],
-    Saturday: [
-      { name: 'Roast Beef',    price: '$12', desc: 'Slow-roasted beef seasoned with Caribbean spices. Carved fresh and served with gravy and your choice of side.',                                          photo: '/photos/menu-roast-beef.jpg' },
-      { name: 'Stew Chicken',  price: '$10', desc: 'Chicken pieces slow-stewed in a savory brown sauce with onions, thyme and local seasonings. A classic Caribbean comfort dish.',                         photo: '/photos/menu-stew-chicken.jpg' },
-      { name: 'Jerk Chicken',  price: '$10', desc: 'Marinated overnight in scotch bonnet, allspice and fresh thyme. Grilled until the skin blisters and the inside stays juicy.',                           photo: '/photos/menu-jerk.jpg' },
-    ],
-  };
-
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   let activeDay = 'Monday';
+
+  const dailyMenu = [
+    {
+      category: 'Chicken',
+      items: [
+        { name: 'Fry Chicken',       price: '$6–10' },
+        { name: 'Baked Chicken',     price: '$7–12' },
+        { name: 'Curry Chicken' },
+        { name: 'BBQ Chicken',       price: '$9–12' },
+        { name: 'Jerk Chicken',      price: '$9–12' },
+        { name: 'Homestyle Chicken' },
+        { name: 'Barbie Fry' },
+      ],
+    },
+    {
+      category: 'Meat & Stews',
+      items: [
+        { name: 'Oxtail',              price: '$10–15' },
+        { name: 'Stew Beef',           price: '$10–14' },
+        { name: 'Curry Goat',          price: '$10–14' },
+        { name: 'Jerk Pork',           price: '$9–12' },
+        { name: 'Roast Pork' },
+        { name: 'Roast Beef' },
+        { name: 'Pot Roast Pork' },
+        { name: 'Pepper Steak' },
+        { name: 'Stew Pork' },
+        { name: 'Spaghetti & Meatballs' },
+        { name: 'Cowfoot & Beans' },
+      ],
+    },
+    {
+      category: 'Soups',
+      items: [
+        { name: 'Chicken Soup' },
+        { name: 'Beef Soup' },
+        { name: 'Cow Foot Soup', price: '$5–10' },
+        { name: 'Conch Soup' },
+      ],
+    },
+    {
+      category: 'Seafood',
+      items: [
+        { name: 'Brown Stew Fish' },
+        { name: 'Fry Fish' },
+        { name: 'Stew Conch' },
+      ],
+    },
+  ];
+
+  const fishItems = [
+    { name: 'Fry Fish',          price: '$16–30' },
+    { name: 'Steam Fish',        price: '$16–30' },
+    { name: 'Brown Stew Fish',   price: '$16–30' },
+    { name: 'Escovitch Fish' },
+  ];
+
+  const shrimpItems = [
+    { name: 'Pepper Shrimp',   price: '$15' },
+    { name: 'Garlic Shrimp',   price: '$15' },
+    { name: 'Curry Shrimp',    price: '$15' },
+    { name: 'Coconut Shrimp',  price: '$15' },
+    { name: 'Fry Shrimp' },
+  ];
+
+  const grillsItems = [
+    { name: 'Chicken Tenders with Chips' },
+    { name: 'Chicken Stir Fry' },
+    { name: 'Escovitch Chicken with Press Plantin' },
+    { name: 'Hot Dog' },
+    { name: 'Hamburgers — Beef or Chicken',  price: '$10' },
+    { name: 'Chicken and Chips' },
+    { name: 'Fish Sticks and Fries' },
+    { name: 'Wings and Fries',               price: '$12' },
+    { name: 'Chicken Burger' },
+    { name: 'Fish Burger' },
+    { name: 'BBQ Wings',                     price: '$12' },
+  ];
+
+  const sides = [
+    { name: 'White Rice',      free: true },
+    { name: 'Rice & Beans',    free: true },
+    { name: 'Pasta',           free: true },
+    { name: 'Coleslaw',        free: true },
+    { name: 'Raw Vegetable',   free: true },
+    { name: 'Festival (x3)',   price: '$2' },
+    { name: 'Steam Bami',      price: '$5' },
+    { name: 'Steam Veg',       price: '$5' },
+    { name: 'Stir Fry Veg',    price: '$5' },
+  ];
+
+  const drinks = [
+    { name: 'Pine & Ginger',             price: '$6' },
+    { name: 'Strawberry Mango',          price: '$6' },
+    { name: 'Soursop with Lime',         price: '$6' },
+    { name: 'Peanut Punch (Strong Back)', price: '$7' },
+  ];
 </script>
 
 <svelte:head>
-  <title>Our Daily Rotating Menu — Seaside Paradise</title>
+  <title>Our Daily Menu — Seaside Paradise</title>
 </svelte:head>
 
 <!-- ── HEADING ── -->
 <section class="menu-heading">
   <div class="heading-inner">
-    <h1 class="menu-title">Our Daily<br />Rotating Menu</h1>
+    <h1 class="menu-title">Our Daily<br />Menu</h1>
+    <p class="menu-hours">Open every day · 11:00 AM – 10:30 PM</p>
   </div>
 </section>
 
 <!-- ── DAY TABS ── -->
-<section class="menu-section">
+<section class="tabs-section">
   <div class="menu-inner">
     <div class="day-tabs" role="tablist" aria-label="Menu days">
       {#each days as day}
@@ -60,31 +123,107 @@
           role="tab"
           aria-selected={activeDay === day}
         >
-          {day.toUpperCase()}
+          {day.slice(0, 3).toUpperCase()}
         </button>
       {/each}
     </div>
+  </div>
+</section>
 
-    <!-- Menu cards -->
-    <div class="menu-grid" role="tabpanel">
-      {#each menuData[activeDay] as item (item.name)}
-        <div class="menu-card" class:featured={item.featured}>
-          <div class="card-photo photo-bg" style="background-image:url('{item.photo}')"></div>
-          <div class="card-content">
-            <div class="card-text-wrap">
-              <div class="card-meta">
-                <span class="card-price">{item.price}</span>
-                <h3 class="card-name">{item.name}</h3>
-              </div>
-              <p class="card-desc">{item.desc}</p>
+<!-- ── DAILY MENU ── -->
+<section class="daily-section">
+  <div class="menu-inner">
+    <div class="menu-grid">
+      {#each dailyMenu as section}
+        <div class="menu-cat">
+          <h3 class="cat-label">{section.category}</h3>
+          {#each section.items as item}
+            <div class="menu-row">
+              <span class="item-name">{item.name}</span>
+              {#if item.price}<span class="item-price">{item.price}</span>{/if}
             </div>
-            <div class="card-line"></div>
+          {/each}
+        </div>
+      {/each}
+    </div>
+  </div>
+</section>
+
+<!-- ── DONE TO ORDER ── -->
+<section class="dto-section">
+  <div class="menu-inner">
+    <div class="dto-head">
+      <p class="eyebrow-amber">PREPARED FRESH</p>
+      <h2 class="dto-title">Done to Order</h2>
+    </div>
+
+    <div class="dto-pair">
+      <div class="menu-cat">
+        <h3 class="cat-label cat-amber">Fish</h3>
+        {#each fishItems as item}
+          <div class="menu-row row-dark">
+            <span class="item-name name-cream">{item.name}</span>
+            {#if item.price}<span class="item-price price-cream">{item.price}</span>{/if}
           </div>
+        {/each}
+      </div>
+      <div class="menu-cat">
+        <h3 class="cat-label cat-amber">Shrimp</h3>
+        {#each shrimpItems as item}
+          <div class="menu-row row-dark">
+            <span class="item-name name-cream">{item.name}</span>
+            {#if item.price}<span class="item-price price-cream">{item.price}</span>{/if}
+          </div>
+        {/each}
+      </div>
+    </div>
+
+    <div class="menu-cat">
+      <h3 class="cat-label cat-amber">Grills &amp; Mains</h3>
+      <div class="grills-grid">
+        {#each grillsItems as item}
+          <div class="menu-row row-dark">
+            <span class="item-name name-cream">{item.name}</span>
+            {#if item.price}<span class="item-price price-cream">{item.price}</span>{/if}
+          </div>
+        {/each}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SIDES & DRINKS ── -->
+<section class="extras-section">
+  <div class="menu-inner extras-row">
+
+    <div class="extras-col">
+      <p class="eyebrow-red">WITH YOUR MEAL</p>
+      <h2 class="extras-title">Sides</h2>
+      {#each sides as item}
+        <div class="menu-row">
+          <span class="item-name">{item.name}</span>
+          {#if item.free}
+            <span class="item-free">Free</span>
+          {:else if item.price}
+            <span class="item-price">{item.price}</span>
+          {/if}
         </div>
       {/each}
     </div>
 
-    <p class="menu-note">Menu changes daily based on what's fresh. Items may vary — ask us what's hot today.</p>
+    <div class="extras-divider"></div>
+
+    <div class="extras-col">
+      <p class="eyebrow-red">FRESHLY MADE</p>
+      <h2 class="extras-title">Natural Drinks</h2>
+      {#each drinks as item}
+        <div class="menu-row">
+          <span class="item-name">{item.name}</span>
+          <span class="item-price">{item.price}</span>
+        </div>
+      {/each}
+    </div>
+
   </div>
 </section>
 
@@ -94,166 +233,207 @@
     <div class="cta-overlay"></div>
     <div class="cta-text">
       <span class="cta-line cream">Good food,</span>
-      <span class="cta-line amber">good vibes,</span>
-      <span class="cta-line cream">every day.</span>
+      <div class="cta-line cta-line-pair">
+        <span class="amber">good vibes,</span>
+        <span class="cream">every day.</span>
+      </div>
     </div>
     <a href="/contact" class="cta-btn">Come Visit Us</a>
   </div>
 </section>
 
 <style>
+/* ── SHARED ── */
+.menu-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.eyebrow-red {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.eyebrow-amber {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
 /* ── HEADING ── */
 .menu-heading {
   background: #fffff4;
-  padding: clamp(56px, 7vw, 100px) clamp(24px, 5.6vw, 80px) clamp(40px, 5vw, 72px);
+  padding: clamp(56px, 7vw, 100px) clamp(24px, 5.6vw, 80px) clamp(32px, 4vw, 56px);
   text-align: center;
 }
-.heading-inner { max-width: 1280px; margin: 0 auto; }
 .menu-title {
   font-family: var(--font-display);
   font-size: clamp(48px, 7vw, 80px);
   line-height: 1.1;
   color: var(--dark);
-  text-align: center;
+}
+.menu-hours {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--dark);
+  opacity: 0.45;
+  margin-top: 14px;
 }
 
-/* ── MENU SECTION ── */
-.menu-section { background: #fffff4; padding: 0 clamp(24px, 5.6vw, 80px) var(--section-pad); }
-.menu-inner { max-width: 1280px; margin: 0 auto; }
-
-/* Day tabs */
+/* ── TABS ── */
+.tabs-section {
+  background: #fffff4;
+  padding: 0 clamp(24px, 5.6vw, 80px);
+}
 .day-tabs {
   display: flex;
-  gap: clamp(24px, 5vw, 72px);
-  margin-bottom: 64px;
+  justify-content: center;
+  gap: clamp(16px, 3.5vw, 56px);
+  border-bottom: 1px solid rgba(45,26,20,0.12);
   overflow-x: auto;
   scrollbar-width: none;
 }
 .day-tabs::-webkit-scrollbar { display: none; }
-
 .day-tab {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 1.92px;
+  font-size: 13px;
+  letter-spacing: 1.8px;
   color: var(--dark);
-  opacity: 0.5;
-  padding-bottom: 12px;
+  opacity: 0.35;
+  padding: 18px 4px;
+  border: none;
   border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
   white-space: nowrap;
-  transition: opacity 0.2s, border-color 0.2s;
   background: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
   cursor: pointer;
+  transition: opacity 0.18s, border-color 0.18s;
 }
-.day-tab:hover { opacity: 0.75; }
-.day-tab.active {
-  opacity: 1;
-  border-bottom-color: var(--dark);
-}
+.day-tab:hover { opacity: 0.65; }
+.day-tab.active { opacity: 1; border-bottom-color: var(--dark); }
 
-/* Menu grid */
+/* ── DAILY MENU ── */
+.daily-section {
+  background: #fffff4;
+  padding: clamp(56px, 6vw, 96px) clamp(24px, 5.6vw, 80px);
+}
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin-bottom: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px 80px;
+  align-items: start;
 }
 
-.menu-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+/* ── SHARED CATEGORY BLOCK ── */
+.menu-cat { display: flex; flex-direction: column; }
 
-.card-photo {
-  height: 320px;
-  width: 100%;
-  background-color: #5A7060;
-  background-size: cover;
-  background-position: center;
-}
-
-.card-content {
-  width: 100%;
-  background: var(--cream);
-  border: 1px solid rgba(45,26,20,0.2);
-  border-top: none;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-  padding: 24px 20px 32px;
-}
-
-.card-text-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-}
-
-.card-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  width: 100%;
-}
-
-.card-price {
-  font-family: var(--font-body);
-  font-size: 20px;
-  line-height: 30px;
-  color: var(--dark);
-  opacity: 0.4;
-  text-align: right;
-  width: 100%;
-}
-
-.card-name {
+.cat-label {
   font-family: var(--font-label);
   font-weight: 600;
-  font-size: 26px;
-  line-height: 32px;
-  color: var(--dark);
-  text-align: center;
-  width: 100%;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(45,26,20,0.14);
 }
+.cat-amber { color: var(--amber); border-bottom-color: rgba(247,240,220,0.15); }
 
-.card-desc {
+.menu-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(45,26,20,0.07);
+}
+.row-dark { border-bottom-color: rgba(247,240,220,0.08); }
+
+.item-name {
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5;
   color: var(--dark);
-  opacity: 0.7;
-  text-align: center;
+}
+.name-cream { color: var(--cream); }
+
+.item-price {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--dark);
+  opacity: 0.5;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.price-cream { color: var(--cream); opacity: 0.65; }
+
+.item-free {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5a8a5a;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.card-line {
-  width: 80px;
-  height: 1px;
-  background: var(--dark);
-}
-
-/* Featured (dark) card variant */
-.menu-card.featured .card-content {
+/* ── DONE TO ORDER ── */
+.dto-section {
   background: var(--bg-dark);
-  border-color: transparent;
+  padding: clamp(56px, 6vw, 96px) clamp(24px, 5.6vw, 80px);
 }
-.menu-card.featured .card-name { color: var(--amber); }
-.menu-card.featured .card-price { color: var(--cream); opacity: 0.7; }
-.menu-card.featured .card-desc { color: var(--cream); opacity: 0.9; }
-.menu-card.featured .card-line { background: var(--amber); }
+.dto-head { margin-bottom: 48px; }
+.dto-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.1;
+  color: var(--cream);
+  margin-top: 8px;
+}
+.dto-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 80px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+.grills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+}
 
-.menu-note {
-  font-size: 14px;
-  color: var(--text-muted);
-  font-style: italic;
-  text-align: center;
+/* ── SIDES & DRINKS ── */
+.extras-section {
+  background: #fffff4;
+  padding: clamp(56px, 6vw, 96px) clamp(24px, 5.6vw, 80px);
+}
+.extras-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.extras-divider {
+  width: 1px;
+  background: rgba(45,26,20,0.12);
+  align-self: stretch;
+  min-height: 100px;
+}
+.extras-col { display: flex; flex-direction: column; }
+.extras-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  color: var(--dark);
+  margin: 8px 0 32px;
 }
 
 /* ── CTA ── */
@@ -263,7 +443,7 @@
 }
 .cta-pill {
   position: relative;
-  max-width: 1280px;
+  max-width: var(--container);
   margin: 0 auto;
   border-radius: 1000px;
   overflow: hidden;
@@ -294,8 +474,14 @@
 }
 .cta-line { display: block; }
 .cta-line.cream { color: var(--cream); }
-.cta-line.amber { color: var(--amber); }
-
+.cta-line-pair {
+  display: flex;
+  gap: 0.28em;
+  align-items: baseline;
+  justify-content: center;
+}
+.cta-line-pair .amber { color: var(--amber); }
+.cta-line-pair .cream { color: var(--cream); }
 .cta-btn {
   position: relative;
   z-index: 1;
@@ -317,16 +503,18 @@
 .cta-btn:hover { opacity: 0.9; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 960px) {
+  .menu-grid { grid-template-columns: 1fr; gap: 48px; }
+  .dto-pair  { grid-template-columns: 1fr; gap: 48px; }
+  .grills-grid { grid-template-columns: 1fr; }
+  .extras-row { grid-template-columns: 1fr; gap: 48px; }
+  .extras-divider { width: 100%; height: 1px; min-height: unset; }
 }
 @media (max-width: 680px) {
-  .menu-grid { grid-template-columns: 1fr; }
   .cta-pill { border-radius: 40px; padding: 56px 32px; }
-  .day-tabs { gap: 20px; }
+  .day-tabs { gap: 16px; }
 }
 @media (max-width: 480px) {
-  .card-photo { height: 220px; }
   .cta-section { padding-left: 0; padding-right: 0; }
   .cta-pill { border-radius: 0; }
 }
