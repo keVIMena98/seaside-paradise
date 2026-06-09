@@ -25,7 +25,7 @@
         {
           "@type": "Question",
           "name": "Where is Seaside Paradise Restaurant located?",
-          "acceptedAnswer": { "@type": "Answer", "text": "166 Bodden Town Road, Bodden Town, Grand Cayman, KY2-2500, Cayman Islands." }
+          "acceptedAnswer": { "@type": "Answer", "text": "238 Bodden Town Road, Bodden Town, Grand Cayman, KY2-2500, Cayman Islands." }
         },
         {
           "@type": "Question",

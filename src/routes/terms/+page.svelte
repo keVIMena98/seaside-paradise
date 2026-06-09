@@ -60,7 +60,7 @@
       <div class="legal-block">
         <h2>9. Contact</h2>
         <p>For any questions regarding these terms, please contact us at:</p>
-        <p>Seaside Paradise Restaurant<br />166 Bodden Town Road, Bodden Town, Grand Cayman, KY2-2500<br /><a href="mailto:seasideparadiseky@gmail.com">seasideparadiseky@gmail.com</a><br /><a href="tel:+13455164367">+1 (345) 516-4367</a></p>
+        <p>Seaside Paradise Restaurant<br />238 Bodden Town Road, Bodden Town, Grand Cayman, KY2-2500<br /><a href="mailto:seasideparadiseky@gmail.com">seasideparadiseky@gmail.com</a><br /><a href="tel:+13455164367">+1 (345) 516-4367</a></p>
       </div>
     </div>
 

@@ -34,7 +34,7 @@
           <p class="col-heading">Address</p>
           <div class="address-content">
             <div class="address-text">
-              <p>166 Bodden Town Road,<br />Bodden Town, Grand Cayman,<br />KY2-2500</p>
+              <p>238 Bodden Town Road,<br />Bodden Town, Grand Cayman,<br />KY2-2500</p>
               <p>+1 (345) 516-4367</p>
             </div>
             <a

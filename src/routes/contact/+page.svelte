@@ -135,7 +135,7 @@
     <div class="info-cols">
       <div class="info-col">
         <h3 class="info-label">Address</h3>
-        <p class="info-text">166 Bodden Town Road,<br />Bodden Town, Grand Cayman, KY2-2500</p>
+        <p class="info-text">238 Bodden Town Road,<br />Bodden Town, Grand Cayman, KY2-2500</p>
       </div>
       <div class="info-line"></div>
       <div class="info-col">
