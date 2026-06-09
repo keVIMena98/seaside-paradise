@@ -32,9 +32,9 @@
   }
 
   const faqs = [
-    { q: 'Do I need to make a reservation?', a: 'No reservations needed. We\'re open every day from 11am to 10:30pm. Just walk in, find a spot on the beach terrace and we\'ll take care of the rest. Come as you are — shoes optional.' },
+    { q: 'Do I need to make a reservation?', a: 'No reservations needed. We\'re open every day from 11am to 9:30pm. Just walk in, find a spot on the beach terrace and we\'ll take care of the rest. Come as you are — shoes optional.' },
     { q: 'Do you offer catering or private events?', a: 'Yes! We cater events across Grand Cayman and host private dining events at the restaurant. Call or WhatsApp us at +1 (345) 516-4367 to discuss your event details.' },
-    { q: 'What are your opening hours?', a: 'We\'re open Monday through Sunday, 11:00 AM to 10:30 PM — every day of the year.' },
+    { q: 'What are your opening hours?', a: 'We\'re open Monday through Sunday, 11:00 AM to 9:30 PM — every day of the year.' },
     { q: 'What is the dress code?', a: 'Come as you are — shorts, flip flops, whatever you\'re wearing. We\'re a laid-back island spot and everyone is welcome at our table.' },
   ];
   let openFaq = 0;
@@ -104,7 +104,7 @@
       <div class="info-line"></div>
       <div class="info-col">
         <h3 class="info-label">Hours</h3>
-        <p class="info-text">Mon – Sun: 11:00 AM – 10:30 PM<br />Open every day</p>
+        <p class="info-text">Mon – Sun: 11:00 AM – 9:30 PM<br />Open every day</p>
       </div>
     </div>
   </div>

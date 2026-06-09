@@ -61,7 +61,7 @@
         <div class="hours-block">
           <p class="col-heading">Hours</p>
           <div class="hours-text">
-            <p>Mon – Sun: 11:00 AM – 10:30 PM</p>
+            <p>Mon – Sun: 11:00 AM – 9:30 PM</p>
             <p>Open every day</p>
           </div>
         </div>

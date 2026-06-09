@@ -107,7 +107,7 @@
 <section class="menu-heading">
   <div class="heading-inner">
     <h1 class="menu-title">Our Daily<br />Menu</h1>
-    <p class="menu-hours">Open every day · 11:00 AM – 10:30 PM</p>
+    <p class="menu-hours">Open every day · 11:00 AM – 9:30 PM</p>
   </div>
 </section>
 

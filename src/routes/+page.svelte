@@ -38,11 +38,11 @@
   ];
 
   const faqs = [
-    { q: 'How can I make a reservation?',             a: "No reservations needed. Walk in any time between 11am and 10:30pm. We'll find you a seat." },
+    { q: 'How can I make a reservation?',             a: "No reservations needed. Walk in any time between 11am and 9:30pm. We'll find you a seat." },
     { q: 'Do you offer catering or private events?',  a: 'Yes! We cater events across Grand Cayman and host private events at the restaurant. Call us to discuss.' },
     { q: 'What is the dress code?',                   a: "Come as you are — shorts, flip flops, whatever you're wearing. We're a laid-back island spot and everyone is welcome at our table." },
     { q: 'Can I find Seaside Paradise on social media?', a: 'Yes! Follow us @seasideparadiserestaurant on Instagram and @seasideparadisefood on TikTok.' },
-    { q: 'What are the opening hours?',               a: "We're open Monday through Sunday, 11:00 AM to 10:30 PM. Open every day of the year." },
+    { q: 'What are the opening hours?',               a: "We're open Monday through Sunday, 11:00 AM to 9:30 PM. Open every day of the year." },
   ];
   let openFaq = 2;
   function toggleFaq(i) { openFaq = openFaq === i ? null : i; }
