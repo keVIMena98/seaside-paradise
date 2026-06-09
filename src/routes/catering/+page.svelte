@@ -377,6 +377,10 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  .services-hero {
+    margin-top: calc(-1 * var(--navbar-h-mobile));
+    min-height: calc(100svh + var(--navbar-h-mobile));
+  }
   .events-section { flex-direction: column; }
   .events-photo { min-height: 360px; }
   .offering-footer { flex-direction: column; align-items: flex-start; }

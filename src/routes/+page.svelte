@@ -1019,6 +1019,13 @@
   .g-wide { grid-column: 1 / -1; height: 200px; }
 }
 
+@media (max-width: 900px) {
+  .hero {
+    margin-top: calc(-1 * var(--navbar-h-mobile));
+    min-height: calc(100svh + var(--navbar-h-mobile));
+  }
+}
+
 @media (max-width: 480px) {
   .hero-title { font-size: 40px; }
   .scroll-hint { display: none; }

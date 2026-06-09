@@ -524,6 +524,10 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  .about-hero {
+    margin-top: calc(-1 * var(--navbar-h-mobile));
+    min-height: calc(100svh + var(--navbar-h-mobile));
+  }
   .story-inner { flex-direction: column; gap: 48px; }
   .story-content { padding-left: 0; }
   .story-photo { width: 100%; max-width: 380px; margin: 0 auto; }

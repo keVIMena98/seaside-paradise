@@ -219,7 +219,7 @@
 
   @media (max-width: 900px) {
     .navbar {
-      height: auto;
+      height: var(--navbar-h-mobile);
       border-bottom: none;
       box-shadow: none;
     }
@@ -230,8 +230,9 @@
     .nav-inner {
       display: flex;
       justify-content: space-between;
-      padding: 16px 24px;
-      height: auto;
+      align-items: center;
+      padding: 0 24px;
+      height: 100%;
     }
     .logo { height: 60px; max-width: 220px; }
     .nav-left,
