@@ -2,15 +2,131 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Seaside Paradise Restaurant — Real Caribbean Food, Bodden Town Born. Fresh local and Caribbean dishes cooked every day at our waterfront spot in Bodden Town, Grand Cayman." />
-    <meta property="og:title" content="Seaside Paradise Restaurant" />
-    <meta property="og:description" content="Real Caribbean Food. Bodden Town Born." />
+    <link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+    <meta name="theme-color" content="#1A0905" />
+
+    <!-- Default SEO (overridden per-page via SEO component) -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="author" content="Seaside Paradise Restaurant" />
+    <meta name="copyright" content="Rodneys Group Ltd" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="3 days" />
+    <meta name="category" content="Restaurant, Caribbean Food, Cayman Islands" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Oswald:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Global Restaurant JSON-LD (present on every page) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Restaurant", "LocalBusiness", "FoodEstablishment"],
+          "@id": "https://seasideparadise.ky/#restaurant",
+          "name": "Seaside Paradise Restaurant",
+          "alternateName": ["Seaside Paradise", "Seaside Paradise Restaurant Grand Cayman"],
+          "description": "Real Caribbean food in the heart of Bodden Town, Grand Cayman. Fresh local dishes cooked every day — jerk chicken, oxtail, curry goat, brown stew fish, and classic Caymanian cooking served on a waterfront beach terrace.",
+          "url": "https://seasideparadise.ky",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://seasideparadise.ky/logo.png",
+            "width": 187,
+            "height": 52
+          },
+          "image": [
+            "https://seasideparadise.ky/photos/hero.jpg",
+            "https://seasideparadise.ky/photos/categories.jpg",
+            "https://seasideparadise.ky/photos/dish-jerk-chicken.jpg",
+            "https://seasideparadise.ky/photos/dish-oxtail.jpg",
+            "https://seasideparadise.ky/photos/dish-curry-goat.jpg",
+            "https://seasideparadise.ky/photos/dish-brown-stew-fish.jpg"
+          ],
+          "telephone": "+13455164367",
+          "email": "seasideparadiseky@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "166 Bodden Town Road",
+            "addressLocality": "Bodden Town",
+            "addressRegion": "Grand Cayman",
+            "postalCode": "KY2-2500",
+            "addressCountry": "KY"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 19.2930,
+            "longitude": -81.2480
+          },
+          "hasMap": "https://maps.google.com/?q=Seaside+Paradise+Restaurant+166+Bodden+Town+Road+Grand+Cayman",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+              "opens": "11:00",
+              "closes": "21:30"
+            }
+          ],
+          "servesCuisine": ["Caribbean", "Caymanian", "Jamaican", "Seafood", "Soul Food", "West Indian"],
+          "priceRange": "$$",
+          "currenciesAccepted": "USD, KYD",
+          "paymentAccepted": "Cash, Credit Card",
+          "menu": "https://seasideparadise.ky/menu",
+          "sameAs": [
+            "https://www.instagram.com/seasideparadiserestaurant",
+            "https://www.tiktok.com/@seasideparadisefood"
+          ],
+          "keywords": "Caribbean restaurant Grand Cayman, Bodden Town restaurant, jerk chicken Grand Cayman, oxtail Grand Cayman, Caymanian food, Caribbean food Cayman Islands, seafood Grand Cayman, authentic Caribbean cooking, local restaurant Grand Cayman, best restaurant Cayman Islands",
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Grand Cayman"
+            },
+            {
+              "@type": "Place",
+              "name": "Cayman Islands"
+            }
+          ],
+          "parentOrganization": {
+            "@type": "Organization",
+            "name": "Rodneys Group Ltd"
+          },
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Waterfront seating", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Beach terrace",      "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Ocean view",         "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Takeaway available", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Catering service",   "value": true }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://seasideparadise.ky/#website",
+          "url": "https://seasideparadise.ky",
+          "name": "Seaside Paradise Restaurant",
+          "description": "Official website of Seaside Paradise Restaurant — Real Caribbean Food, Bodden Town, Grand Cayman",
+          "publisher": { "@id": "https://seasideparadise.ky/#restaurant" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://seasideparadise.ky/menu?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          },
+          "inLanguage": "en-KY"
+        }
+      ]
+    }
+    </script>
+
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">

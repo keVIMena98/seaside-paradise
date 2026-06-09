@@ -1,4 +1,36 @@
 <script>
+  import SEO from '$lib/components/SEO.svelte';
+
+  const contactSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": "https://seasideparadise.ky/contact#webpage",
+      "name": "Contact Seaside Paradise Restaurant",
+      "description": "Get in touch with Seaside Paradise Restaurant in Bodden Town, Grand Cayman. Call, WhatsApp, email, or fill out our contact form for reservations, catering enquiries, and general questions.",
+      "url": "https://seasideparadise.ky/contact",
+      "isPartOf": { "@id": "https://seasideparadise.ky/#website" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do I need to make a reservation?", "acceptedAnswer": { "@type": "Answer", "text": "No reservations needed. We're open every day from 11am to 9:30pm. Just walk in, find a spot on the beach terrace and we'll take care of the rest." } },
+        { "@type": "Question", "name": "Do you offer catering or private events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! We cater events across Grand Cayman and host private dining events at the restaurant. Call or WhatsApp us at +1 (345) 516-4367 to discuss your event details." } },
+        { "@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": { "@type": "Answer", "text": "We're open Monday through Sunday, 11:00 AM to 9:30 PM — every day of the year." } },
+        { "@type": "Question", "name": "What is the dress code?", "acceptedAnswer": { "@type": "Answer", "text": "Come as you are — shorts, flip flops, whatever you're wearing. We're a laid-back island spot and everyone is welcome at our table." } }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://seasideparadise.ky/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://seasideparadise.ky/contact" }
+      ]
+    }
+  ];
+
   let form = { name: '', phone: '', email: '', message: '', agreed: false };
   let submitted = false;
   let submitting = false;
@@ -41,9 +73,13 @@
   function toggleFaq(i) { openFaq = openFaq === i ? null : i; }
 </script>
 
-<svelte:head>
-  <title>Contact — Seaside Paradise Restaurant</title>
-</svelte:head>
+<SEO
+  title="Contact Us — Seaside Paradise Restaurant Bodden Town, Grand Cayman"
+  description="Contact Seaside Paradise Restaurant in Bodden Town, Grand Cayman. Call +1 (345) 516-4367, email seasideparadiseky@gmail.com, or fill out our contact form. Open every day 11am–9:30pm. No reservation needed."
+  canonical="/contact"
+  image="https://seasideparadise.ky/photos/contact-cta.jpg"
+  jsonLd={contactSchema}
+/>
 
 <!-- ── HEADING + CONTACT FORM ──────────────────────────────────── -->
 <section class="form-section" id="form">

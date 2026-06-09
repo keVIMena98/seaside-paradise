@@ -1,5 +1,47 @@
 <script>
   import { slide, fade } from 'svelte/transition';
+  import SEO from '$lib/components/SEO.svelte';
+
+  const homeSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need a reservation at Seaside Paradise Restaurant?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No reservations needed. Walk in any time between 11am and 9:30pm. We'll find you a seat." }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the opening hours of Seaside Paradise Restaurant?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Seaside Paradise Restaurant is open Monday through Sunday, 11:00 AM to 9:30 PM, every day of the year." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Seaside Paradise offer catering?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes! We cater events across Grand Cayman and host private events at the restaurant. Call +1 (345) 516-4367 to discuss." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Seaside Paradise Restaurant located?",
+          "acceptedAnswer": { "@type": "Answer", "text": "166 Bodden Town Road, Bodden Town, Grand Cayman, KY2-2500, Cayman Islands." }
+        },
+        {
+          "@type": "Question",
+          "name": "What type of food does Seaside Paradise serve?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Authentic Caribbean and Caymanian cuisine — jerk chicken, oxtail, curry goat, brown stew fish, rondon, conch soup, and fresh local seafood cooked daily." }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seasideparadise.ky/" }
+      ]
+    }
+  ];
 
   // Scroll-reveal action
   function reveal(node, { delay = 0, y = 28 } = {}) {
@@ -57,9 +99,13 @@
   function nextTestimonial() { activeTestimonial = (activeTestimonial + 1) % testimonials.length; }
 </script>
 
-<svelte:head>
-  <title>Seaside Paradise Restaurant — Real Caribbean Food, Bodden Town</title>
-</svelte:head>
+<SEO
+  title="Seaside Paradise Restaurant — Real Caribbean Food, Bodden Town, Grand Cayman"
+  description="The best Caribbean restaurant in Grand Cayman. Jerk chicken, oxtail, curry goat, brown stew fish and authentic Caymanian cooking served fresh every day on our waterfront terrace in Bodden Town. Open 11am–9:30pm daily."
+  canonical="/"
+  image="https://seasideparadise.ky/photos/hero.jpg"
+  jsonLd={homeSchema}
+/>
 
 <!-- ── HERO ─────────────────────────────────────────────────────── -->
 <section class="hero">

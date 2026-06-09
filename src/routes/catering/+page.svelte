@@ -1,4 +1,28 @@
 <script>
+  import SEO from '$lib/components/SEO.svelte';
+
+  const cateringSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": "https://seasideparadise.ky/catering#service",
+      "name": "Catering & Private Events — Seaside Paradise Restaurant",
+      "description": "Caribbean catering and private event services across Grand Cayman. Jerk chicken, oxtail, curry goat, seafood, and full island buffets for weddings, corporate events, and family gatherings.",
+      "provider": { "@id": "https://seasideparadise.ky/#restaurant" },
+      "areaServed": { "@type": "Place", "name": "Grand Cayman, Cayman Islands" },
+      "serviceType": "Catering",
+      "url": "https://seasideparadise.ky/catering"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",     "item": "https://seasideparadise.ky/" },
+        { "@type": "ListItem", "position": 2, "name": "Catering", "item": "https://seasideparadise.ky/catering" }
+      ]
+    }
+  ];
+
   const photos = [
     '/photos/services-interior.jpg',
     '/photos/about-hero.jpg',
@@ -9,9 +33,13 @@
   function nextPhoto() { photoIndex = (photoIndex + 1) % photos.length; }
 </script>
 
-<svelte:head>
-  <title>Services & Catering — Seaside Paradise</title>
-</svelte:head>
+<SEO
+  title="Catering & Private Events Grand Cayman | Seaside Paradise Restaurant"
+  description="Seaside Paradise offers Caribbean catering and private event services across Grand Cayman. Jerk chicken, oxtail, curry goat, seafood buffets for weddings, corporate events, and family celebrations. Call +1 (345) 516-4367."
+  canonical="/catering"
+  image="https://seasideparadise.ky/photos/services-hero.jpg"
+  jsonLd={cateringSchema}
+/>
 
 <!-- ── HERO ── -->
 <section class="services-hero photo-bg" style="background-image:url('/photos/services-hero.jpg')">

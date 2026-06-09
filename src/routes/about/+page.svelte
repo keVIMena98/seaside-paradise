@@ -1,4 +1,27 @@
 <script>
+  import SEO from '$lib/components/SEO.svelte';
+
+  const aboutSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://seasideparadise.ky/about#webpage",
+      "name": "About Seaside Paradise Restaurant",
+      "description": "Seaside Paradise Restaurant has been serving authentic Caribbean food in Bodden Town, Grand Cayman since 2010. Waterfront dining, fresh daily menu, ocean views.",
+      "url": "https://seasideparadise.ky/about",
+      "isPartOf": { "@id": "https://seasideparadise.ky/#website" },
+      "about": { "@id": "https://seasideparadise.ky/#restaurant" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://seasideparadise.ky/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://seasideparadise.ky/about" }
+      ]
+    }
+  ];
+
   const values = [
     { title: 'Freshness',    desc: 'Our menu changes every day based on what\'s fresh. Local fishermen and farmers tell us what\'s good, and that\'s what we cook.' },
     { title: 'Community',   desc: 'We\'ve been a part of Bodden Town for years. Our customers are our neighbours. We cook for them like family every single day.' },
@@ -14,9 +37,13 @@
   ];
 </script>
 
-<svelte:head>
-  <title>About Our Restaurant — Seaside Paradise</title>
-</svelte:head>
+<SEO
+  title="About Us — Caribbean Restaurant in Bodden Town, Grand Cayman | Seaside Paradise"
+  description="Since 2010, Seaside Paradise Restaurant has been serving authentic Caribbean food in Bodden Town, Grand Cayman. Waterfront terrace, ocean views, fresh daily menu — jerk chicken, oxtail, curry goat, fresh fish."
+  canonical="/about"
+  image="https://seasideparadise.ky/photos/about-hero.jpg"
+  jsonLd={aboutSchema}
+/>
 
 <!-- ── HERO ── -->
 <section class="about-hero photo-bg" style="background-image:url('/photos/about-hero.jpg')">

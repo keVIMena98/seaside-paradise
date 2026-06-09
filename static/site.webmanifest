@@ -1,0 +1,13 @@
+{
+  "name": "Seaside Paradise Restaurant",
+  "short_name": "Seaside Paradise",
+  "description": "Real Caribbean Food. Bodden Town Born. Grand Cayman's favourite waterfront restaurant.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1A0905",
+  "theme_color": "#1A0905",
+  "icons": [
+    { "src": "/favicon-32.png",        "sizes": "32x32",   "type": "image/png" },
+    { "src": "/apple-touch-icon.png",  "sizes": "180x180", "type": "image/png" }
+  ]
+}

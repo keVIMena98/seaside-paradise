@@ -1,0 +1,64 @@
+# Seaside Paradise Restaurant — seasideparadise.ky
+# Robots.txt — allow all crawlers including AI agents
+
+User-agent: *
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /photos/
+
+# Bing / Microsoft
+User-agent: Bingbot
+Allow: /
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google Gemini / Bard
+User-agent: Google-Extended
+Allow: /
+
+# Meta (Llama)
+User-agent: FacebookBot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+# Common AI/search crawlers
+User-agent: YouBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+Sitemap: https://seasideparadise.ky/sitemap.xml

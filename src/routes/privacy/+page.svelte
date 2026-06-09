@@ -1,6 +1,12 @@
-<svelte:head>
-  <title>Privacy Policy — Seaside Paradise Restaurant</title>
-</svelte:head>
+<script>
+  import SEO from '$lib/components/SEO.svelte';
+</script>
+
+<SEO
+  title="Privacy Policy | Seaside Paradise Restaurant"
+  description="Privacy Policy for Seaside Paradise Restaurant, Bodden Town, Grand Cayman. Read how we handle your personal data."
+  canonical="/privacy"
+/>
 
 <section class="legal-section">
   <div class="legal-inner">

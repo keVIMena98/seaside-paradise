@@ -1,4 +1,70 @@
 <script>
+  import SEO from '$lib/components/SEO.svelte';
+
+  const menuSchema = {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "@id": "https://seasideparadise.ky/menu#menu",
+    "name": "Seaside Paradise Restaurant Daily Menu",
+    "description": "Fresh Caribbean and Caymanian dishes cooked daily. Menu rotates based on the catch and local farm availability.",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Chicken",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Fry Chicken",   "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "6" } },
+          { "@type": "MenuItem", "name": "Baked Chicken", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "7" } },
+          { "@type": "MenuItem", "name": "BBQ Chicken",   "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "9" } },
+          { "@type": "MenuItem", "name": "Jerk Chicken",  "description": "Marinated overnight in scotch bonnet and allspice, cooked over open heat.", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "9" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Mains",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Oxtail",       "description": "Slow-braised for hours until fall-off-the-bone tender. Served with rice and peas.", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "10" } },
+          { "@type": "MenuItem", "name": "Stew Beef",    "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "10" } },
+          { "@type": "MenuItem", "name": "Curry Goat",   "description": "Slow-cooked in Caribbean curry with potatoes and peppers.", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "10" } },
+          { "@type": "MenuItem", "name": "Jerk Pork",    "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "9" } },
+          { "@type": "MenuItem", "name": "Cow Foot Soup","description": "Traditional Caribbean soup.", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "5" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Fish & Seafood",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Fry Fish",        "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "16" } },
+          { "@type": "MenuItem", "name": "Steam Fish",      "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "16" } },
+          { "@type": "MenuItem", "name": "Brown Stew Fish", "description": "Fresh local fish in rich brown gravy with island spices.", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "16" } },
+          { "@type": "MenuItem", "name": "Pepper Shrimp",   "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15" } },
+          { "@type": "MenuItem", "name": "Garlic Shrimp",   "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15" } },
+          { "@type": "MenuItem", "name": "Curry Shrimp",    "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15" } },
+          { "@type": "MenuItem", "name": "Coconut Shrimp",  "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Sides",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Festival (x3)", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "2" } },
+          { "@type": "MenuItem", "name": "Steam Bami",    "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "5" } },
+          { "@type": "MenuItem", "name": "Steam Veg",     "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "5" } },
+          { "@type": "MenuItem", "name": "Stir Fry Veg",  "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "5" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Natural Drinks",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Pine & Ginger",              "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "6" } },
+          { "@type": "MenuItem", "name": "Strawberry Mango",           "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "6" } },
+          { "@type": "MenuItem", "name": "Soursop with Lime",          "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "6" } },
+          { "@type": "MenuItem", "name": "Peanut Punch (Strong Back)", "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "7" } }
+        ]
+      }
+    ]
+  };
+
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   let activeDay = 'Monday';
 
@@ -99,9 +165,16 @@
   ];
 </script>
 
-<svelte:head>
-  <title>Our Daily Menu — Seaside Paradise</title>
-</svelte:head>
+<SEO
+  title="Menu — Caribbean Food Prices & Dishes | Seaside Paradise Restaurant Grand Cayman"
+  description="View the full daily menu at Seaside Paradise Restaurant in Bodden Town, Grand Cayman. Jerk chicken from $9, oxtail from $10, curry goat from $10, fresh fish from $16, shrimp $15. Open every day 11am–9:30pm."
+  canonical="/menu"
+  image="https://seasideparadise.ky/photos/dish-jerk-chicken.jpg"
+  jsonLd={[menuSchema, { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home",  "item": "https://seasideparadise.ky/" },
+    { "@type": "ListItem", "position": 2, "name": "Menu",  "item": "https://seasideparadise.ky/menu" }
+  ]}]}
+/>
 
 <!-- ── HEADING ── -->
 <section class="menu-heading">

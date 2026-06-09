@@ -1,6 +1,12 @@
-<svelte:head>
-  <title>Terms &amp; Conditions — Seaside Paradise Restaurant</title>
-</svelte:head>
+<script>
+  import SEO from '$lib/components/SEO.svelte';
+</script>
+
+<SEO
+  title="Terms & Conditions | Seaside Paradise Restaurant"
+  description="Terms and Conditions for Seaside Paradise Restaurant, Bodden Town, Grand Cayman. Read our policies for dining, catering, and website use."
+  canonical="/terms"
+/>
 
 <section class="legal-section">
   <div class="legal-inner">
